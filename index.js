@@ -53,18 +53,22 @@ client.on('message', async message => {
   if (!reason) reason = "No reason provided."; //If they don't specify a reason, we automatically set the reason as "No reason provided."
   const yesorno = new MessageEmbed()
   .setColor('BLUE')
-  .setTitle(`Are you sure you'd like to kick ${member}?`)
+  .setTitle(`Are you sure you'd like to kick ${member,tag}?`)
   .setDescription('React with ✅ or ❌ within the next 15 seconds confirming you\'d like to kick ' + member + '!')
   .setFooter(`Caused by: ${message.author.tag}`, message.author.displayAvatarURL())
   const kickyes = new MessageEmbed()
   .setTitle(`${member} has been sucessfully kicked!`)
   const kickno = new MessageEmbed()
   .setTitle(`Cancelled the kick with target ${member.tag}`)
-  const reply1234 = await message.reply(yesorno)
-  await reply1234.react('✅');
+  const reply123 = await message.reply(yesorno)
+  await reply123.react('✅');
   const filter = (reaction, user) => reaction.emoji.name === '✅' && user.id == message.author.id
-  reply1234.createReactionCollector(filter, { maxMatches: 1 })
-    .on('collect', async () => await reply1234.edit(kickyes));
+  reply123.createReactionCollector(filter, { maxMatches: 1 })
+    .on('collect', async () => await reply123.edit(kickyes), member.kick(reason));
+    await reply123.react('❌');
+  const filter = (reaction, user) => reaction.emoji.name === '❌' && user.id == message.author.id
+  reply123.createReactionCollector(filter, { maxMatches: 1 })
+    .on('collect', async () => await reply123.edit(kickno));
   break
          case 'meme':
         const randomPuppy = require('random-puppy');
