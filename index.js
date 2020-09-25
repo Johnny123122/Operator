@@ -929,13 +929,16 @@ case 'pong':
             .setColor('RED')
             .setFooter("Executed")
             .setTimestamp()
+            const hiddenembe1 = new MessageEmbed()
+            .setColor('RED')
+            .setTitle('Evaluation hidden by evaluator.')
     
             const reply123 = await message.channel.send(embed1234)
             await reply123.react('❌');
           
             const filter = (reaction, user) => reaction.emoji.name === '❌' && user.id == message.author.id
             reply123.createReactionCollector(filter, { maxMatches: 1 })
-              .on('collect', async () => await reply123.edit(hiddenembed));
+              .on('collect', async () => await reply123.edit(hiddenembe1));
     }
 break
 case 'restart':
