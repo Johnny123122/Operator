@@ -61,7 +61,8 @@ client.on('message', async message => {
   const kickno = new MessageEmbed()
   .setTitle(`Cancelled the kick with target ${member.tag}`)
   const reply123 = await message.reply(yesorno)
-  await reply123.react('✅','❌')
+  await reply123.react('✅')
+  reply123.react('❌')
   const filter = (reaction, user) => reaction.emoji.name === '✅' && user.id == message.author.id
   reply123.createReactionCollector(filter, { maxMatches: 1 })
     .on('collect', async () => await reply123.edit(kickyes), member.kick(reason));
