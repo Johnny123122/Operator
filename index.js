@@ -119,7 +119,6 @@ client.on('message', async message => {
           reply12345.createReactionCollector(filter123, { maxMatches: 1 })
             .on('collect', async () => await reply12345.edit(kickno1));
         break
-break
        case 'vibecheck':
        if (!message.member.hasPermission('ADMINISTRATOR'))
            return message.channel.send("You can't use that command!")
