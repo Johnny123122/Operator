@@ -15,9 +15,9 @@ let client = new Client({
 const statcord = new Statcord.Client({
     client,
     key: "statcord.com-759EiYk6YddBd7t0dBP4",
-    postCpuStatistics: false, /* Whether to post memory statistics or not, defaults to true */
-    postMemStatistics: false, /* Whether to post memory statistics or not, defaults to true */
-    postNetworkStatistics: false, /* Whether to post memory statistics or not, defaults to true */
+    postCpuStatistics: true, /* Whether to post memory statistics or not, defaults to true */
+    postMemStatistics: true, /* Whether to post memory statistics or not, defaults to true */
+    postNetworkStatistics: true, /* Whether to post memory statistics or not, defaults to true */
 });
 client.on("ready", async () => {
     console.log(`Logged in as: ${client.user.tag}`);
