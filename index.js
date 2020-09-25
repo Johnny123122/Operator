@@ -93,8 +93,6 @@ client.on('message', async message => {
 
  const member1 = message.mentions.users.first()
    if (!member1) return message.channel.send("Please specify a valid user."); //If we don't specify a user, nor enter a valid user, it will will respond, letting us know to type a valid user.
-if (!member1.bannable) //This checks if the user can be banned, if their permissions don't enable them to get banned, such as Admins, it will let you know it can't ban them.
- return message.channel.send("Unable to ban specified user.");
 
 let reason1 = args.slice(1).join(" "); //Here we specify the reason they got kicked, it is optional, but it helps for mod logs.
 if (!reason1) reason1 = "No reason provided."; //If they don't specify a reason, we automatically set the reason as "No reason provided."
