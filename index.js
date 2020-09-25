@@ -44,25 +44,25 @@ client.on('message', async message => {
        if (!message.member.hasPermission("KICK_MEMBERS")) //Checks if user has permission to run the command.
     return message.channel.send("You are not allowed to run that command.");
 
-  let member = message.mentions.members.first(); //We specify the member we wish to kick.
-  if (!member) return message.channel.send("Please specify a valid user."); //If we don't specify a user, nor enter a valid user, it will will respond, letting us know to type a valid user.
-  if (!member.kickable) //This checks if the user can be kicked, if their permissions don't enable them to get kicked, such as Admins, it will let you know it can't kick them.
+  let member12 = message.mentions.members.first(); //We specify the member we wish to kick.
+  if (!member12) return message.channel.send("Please specify a valid user."); //If we don't specify a user, nor enter a valid user, it will will respond, letting us know to type a valid user.
+  if (!member12.kickable) //This checks if the user can be kicked, if their permissions don't enable them to get kicked, such as Admins, it will let you know it can't kick them.
     return message.channel.send("Unable to kick specified user.");
 
   let reason = args.slice(1).join(" "); //Here we specify the reason they got kicked, it is optional, but it helps for mod logs.
   if (!reason) reason = "No reason provided."; //If they don't specify a reason, we automatically set the reason as "No reason provided."
   const yesorno = new MessageEmbed()
   .setColor('BLUE')
-  .setTitle(`Are you sure you'd like to kick ${member.tag}?`)
-  .setDescription('React with ✅ or ❌ within the next 15 seconds confirming you\'d like to kick ' + member.tag + '!')
+  .setTitle(`Are you sure you'd like to kick ${member12.tag}?`)
+  .setDescription(`React with ✅ or ❌ within the next 15 seconds confirming you\'d like to kick ${member12.tag} !`)
   .setFooter(`Caused by: ${message.author.tag}`, message.author.displayAvatarURL())
   const kickyes = new MessageEmbed()
-  .setTitle(`${member} has been sucessfully kicked!`)
+  .setTitle(`${member12} has been sucessfully kicked!`)
   const reply123 = await message.reply(yesorno)
   await reply123.react('✅')
   const filter1 = (reaction, user) => reaction.emoji.name === '✅' && user.id == message.author.id
   reply123.createReactionCollector(filter1, { maxMatches: 1 })
-    .on('collect', async () => await reply123.edit(kickyes));
+    .on('collect', async () => await reply123.edit(kickyes) && member.kick(reason));
   break
          case 'meme':
         const randomPuppy = require('random-puppy');
