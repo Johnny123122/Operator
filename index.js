@@ -913,7 +913,12 @@ case 'pong':
                 .setFooter("Executed")
                 .setTimestamp()
     
-            message.channel.send(embed123);
+                const reply12 = await message.channel.send(embed123)
+                await reply12.react('❌');
+              
+                const filter = (reaction, user) => reaction.emoji.name === '❌' && user.id == message.author.id
+                reply12.createReactionCollector(filter, { maxMatches: 1 })
+                  .on('collect', async () => await reply12.delete());
     } catch (err) {
         const embed1234 = new MessageEmbed()
             .setAuthor("Test Code", "https://i.imgur.com/hyS5l2c.png")
