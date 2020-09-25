@@ -53,11 +53,11 @@ client.on('message', async message => {
   if (!reason) reason = "No reason provided."; //If they don't specify a reason, we automatically set the reason as "No reason provided."
   const yesorno = new MessageEmbed()
   .setColor('BLUE')
-  .setTitle(`Are you sure you'd like to kick ${member12.tag}?`)
-  .setDescription(`React with ✅ or ❌ within the next 15 seconds confirming you\'d like to kick ${member12.tag} !`)
+  .setTitle(`Are you sure you'd like to kick ${member12.user.tag}?`)
+  .setDescription(`React with ✅ or ❌ within the next 15 seconds confirming you\'d like to kick <@${member12.id}> !`)
   .setFooter(`Caused by: ${message.author.tag}`, message.author.displayAvatarURL())
   const kickyes = new MessageEmbed()
-  .setTitle(`${member12} has been sucessfully kicked!`)
+  .setTitle(`${member12.user.tag} has been sucessfully kicked!`)
   const reply123 = await message.reply(yesorno)
   await reply123.react('✅')
   const filter1 = (reaction, user) => reaction.emoji.name === '✅' && user.id == message.author.id
