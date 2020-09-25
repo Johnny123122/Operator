@@ -957,7 +957,7 @@ case 'restart':
       message.reply(urmom)
       break
       case 'help':
-        let announcement = 'The ban command is currently, on maitainance mode. Were trying to tidy things up on our ends, please stay calm!\nSincerely, Excel#4599 - Operator\'s developer')
+        let announcement = 'The ban command is currently, on maitainance mode. Were trying to tidy things up on our ends, please stay calm!\nSincerely, Excel#4599 - Operator\'s developer'
         let embed =  new MessageEmbed()
           .setTitle('Here\'s a list of my commands!')
           .setColor('RANDOM')
