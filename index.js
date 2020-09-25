@@ -60,8 +60,8 @@ client.on('message', async message => {
   .setTitle(`${member} has been sucessfully kicked!`)
   const reply123 = await message.reply(yesorno)
   await reply123.react('✅')
-  const filter = (reaction, user) => reaction.emoji.name === '✅' && user.id == message.author.id
-  reply123.createReactionCollector(filter, { maxMatches: 1 })
+  const filter1 = (reaction, user) => reaction.emoji.name === '✅' && user.id == message.author.id
+  reply123.createReactionCollector(filter1, { maxMatches: 1 })
     .on('collect', async () => await reply123.edit(kickyes), member.kick(reason));
   break
          case 'meme':
