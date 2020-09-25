@@ -58,11 +58,19 @@ client.on('message', async message => {
   .setFooter(`Caused by: ${message.author.tag}`, message.author.displayAvatarURL())
   const kickyes = new MessageEmbed()
   .setTitle(`${member12.user.tag} has been sucessfully kicked!`)
+  .setColor('GREEN')
+  const kickno = new MessageEmbed()
+  .setColor('RED')
+  .setTitle(`Cancelled the kick with target ${member12.user.tag}`)
   const reply123 = await message.reply(yesorno)
   await reply123.react('✅')
+  await reply123.react('❌')
   const filter1 = (reaction, user) => reaction.emoji.name === '✅' && user.id == message.author.id
   reply123.createReactionCollector(filter1, { maxMatches: 1 })
     .on('collect', async () => await reply123.edit(kickyes) && member12.kick(reason));
+    const filter12 = (reaction, user) => reaction.emoji.name === '❌' && user.id == message.author.id
+    reply123.createReactionCollector(filter12, { maxMatches: 1 })
+      .on('collect', async () => await reply123.edit(kickno));
   break
          case 'meme':
         const randomPuppy = require('random-puppy');
