@@ -95,8 +95,7 @@ client.on('message', async message => {
  if (!member1)
  try{
   const member1 = mentions.users.first()
-  if (target) {
-    const targetedUser = message.guild.members.cache.get(target.id)
+  const targetedUser = message.guild.members.cache.get(member1.id)
    if (!member1) return message.channel.send("Please specify a valid user."); //If we don't specify a user, nor enter a valid user, it will will respond, letting us know to type a valid user.
 if (!member1.bannable) //This checks if the user can be banned, if their permissions don't enable them to get banned, such as Admins, it will let you know it can't ban them.
  return message.channel.send("Unable to ban specified user.");
