@@ -97,6 +97,10 @@ if (!member1) {
   if (!message.guild.members.get(args.slice(0, 1).join(' '))) throw new Error('Couldn\' get a Discord user with this userID!');
   member1 = message.guild.members.get(args.slice(0, 1).join(' '));
   member1 = member1.user;
+} catch (error) {
+  return message.reply('Couldn\' get a Discord user with this userID!');
+  }
+  }
 if (!member1.bannable) 
  return message.channel.send("Unable to ban specified user.");
 
