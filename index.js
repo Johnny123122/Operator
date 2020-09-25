@@ -98,7 +98,6 @@ if (!member1.bannable) //This checks if the user can be banned, if their permiss
 
 let reason1 = args.slice(1).join(" "); //Here we specify the reason they got kicked, it is optional, but it helps for mod logs.
 if (!reason1) reason1 = "No reason provided."; //If they don't specify a reason, we automatically set the reason as "No reason provided."
-member1.send(`You've been banned from ${message.guild.name}, with reason ${reason1}!`)
 const yesorno1 = new MessageEmbed()
 .setColor('BLUE')
 .setTitle(`Are you sure you'd like to ban ${member1.user.tag}?`)
@@ -115,7 +114,7 @@ await reply1231.react('✅')
 await reply1231.react('❌')
 const filter11 = (reaction, user) => reaction.emoji.name === '✅' && user.id == message.author.id
 reply1231.createReactionCollector(filter11, { maxMatches: 1 })
-  .on('collect', async () => await reply1231.edit(kickyes1));
+  .on('collect', async () => await reply1231.edit(kickyes1) && message.channel.send('test'));
   const filter121 = (reaction, user) => reaction.emoji.name === '❌' && user.id == message.author.id
   reply1231.createReactionCollector(filter121, { maxMatches: 1 })
     .on('collect', async () => await reply1231.edit(kickno1));
