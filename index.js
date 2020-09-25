@@ -930,7 +930,12 @@ case 'pong':
             .setFooter("Executed")
             .setTimestamp()
     
-        message.channel.send(embed1234);
+            const reply123 = await message.channel.send(embed1234)
+            await reply123.react('❌');
+          
+            const filter = (reaction, user) => reaction.emoji.name === '❌' && user.id == message.author.id
+            reply123.createReactionCollector(filter, { maxMatches: 1 })
+              .on('collect', async () => await reply123.edit(hiddenembed));
     }
 break
 case 'restart':
