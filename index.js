@@ -948,6 +948,14 @@ case 'restart':
   client.destroy()
   client.login(process.env.token)
     break
+      case 'ban':
+      const urmom = new MessageEmbed()
+      .setTitle(`Hello ${message.author.tag}!`)
+      .setColor('RED')
+      .setDescription('It has came to my attention, you\'re trying to use the ban command! We\'re truly sorry for the inconvienece. We\'re tidying some things up on our end within this command. Please stay calm.')
+      .setFooter('Sincerely, Excel#888 - Operator\'s developer', `https://cdn.discordapp.com/avatars/700096978796937267/a_e11507e4f84c19beedcafb5395caab44.webp?size=128`)
+      message.reply(urmom)
+      break
       case 'help':
         let announcement = 'The ban command is currently, on maitainance mode. Were trying to tidy things up on our ends, please stay calm!'
         let embed =  new MessageEmbed()
