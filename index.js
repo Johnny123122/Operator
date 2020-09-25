@@ -88,34 +88,37 @@ client.on('message', async message => {
         message.channel.send(embed2);
         break
         case 'ban':
-    if (!message.member.hasPermission("BAN_MEMBERS")) //Checks if user has permission to run the command.
- return message.channel.send("You are not allowed to run that command.");
-
- const member1 = message.mentions.users.first().id
-   if (!member1) return message.channel.send("Please specify a valid user."); //If we don't specify a user, nor enter a valid user, it will will respond, letting us know to type a valid user.
-
-let reason1 = args.slice(1).join(" "); //Here we specify the reason they got kicked, it is optional, but it helps for mod logs.
-if (!reason1) reason1 = "No reason provided."; //If they don't specify a reason, we automatically set the reason as "No reason provided."
-const yesorno1 = new MessageEmbed()
-.setColor('BLUE')
-.setTitle(`Are you sure you'd like to ban ${member1.tag}?`)
-.setDescription(`React with ✅ or ❌ within the next 15 seconds confirming you\'d like to ban <@${member1}> !`)
-.setFooter(`Caused by: ${message.author.tag}`, message.author.displayAvatarURL())
-const kickyes1 = new MessageEmbed()
-.setTitle(`${member1.tag} has been sucessfully ban!`)
-.setColor('GREEN')
-const kickno1 = new MessageEmbed()
-.setColor('RED')
-.setTitle(`Cancelled the ban with target ${member1.tag}`)
-const reply1231 = await message.reply(yesorno1)
-await reply1231.react('✅')
-await reply1231.react('❌')
-const filter11 = (reaction, user) => reaction.emoji.name === '✅' && user.id == message.author.id
-reply1231.createReactionCollector(filter11, { maxMatches: 1 })
-  .on('collect', async () => await reply1231.edit(kickyes1) && message.channel.send('test'));
-  const filter121 = (reaction, user) => reaction.emoji.name === '❌' && user.id == message.author.id
-  reply1231.createReactionCollector(filter121, { maxMatches: 1 })
-    .on('collect', async () => await reply1231.edit(kickno1));
+          if (!message.member.hasPermission("BAN_MEMBERS")) //Checks if user has permission to run the command.
+          return message.channel.send("You are not allowed to run that command.");
+      
+        let member12 = message.mentions.members.first(); //We specify the member we wish to kick.
+        if (!member12) return message.channel.send("Please specify a valid user."); //If we don't specify a user, nor enter a valid user, it will will respond, letting us know to type a valid user.
+        if (!member12.kickable) //This checks if the user can be kicked, if their permissions don't enable them to get kicked, such as Admins, it will let you know it can't kick them.
+          return message.channel.send("Unable to kick specified user.");
+      
+        let reason1112 = args.slice(1).join(" "); //Here we specify the reason they got kicked, it is optional, but it helps for mod logs.
+        if (!reason1112) reason1112 = "No reason provided."; //If they don't specify a reason, we automatically set the reason as "No reason provided."
+        const yesorno1 = new MessageEmbed()
+        .setColor('BLUE')
+        .setTitle(`Are you sure you'd like to kick ${member12.user.tag}?`)
+        .setDescription(`React with ✅ or ❌ within the next 15 seconds confirming you\'d like to kick <@${member12.id}> !`)
+        .setFooter(`Caused by: ${message.author.tag}`, message.author.displayAvatarURL())
+        const kickyes1 = new MessageEmbed()
+        .setTitle(`${member12.user.tag} has been sucessfully kicked!`)
+        .setColor('GREEN')
+        const kickno1 = new MessageEmbed()
+        .setColor('RED')
+        .setTitle(`Cancelled the kick with target ${member12.user.tag}`)
+        const reply12345 = await message.reply(yesorno1)
+        await reply12345.react('✅')
+        await reply12345.react('❌')
+        const filter112 = (reaction, user) => reaction.emoji.name === '✅' && user.id == message.author.id
+        reply123.createReactionCollector(filter112, { maxMatches: 1 })
+          .on('collect', async () => await reply12345.edit(kickyes1) && member12.kick(reason));
+          const filter123 = (reaction, user) => reaction.emoji.name === '❌' && user.id == message.author.id
+          reply12345.createReactionCollector(filter123, { maxMatches: 1 })
+            .on('collect', async () => await reply12345.edit(kickno1));
+        break
 break
        case 'vibecheck':
        if (!message.member.hasPermission('ADMINISTRATOR'))
