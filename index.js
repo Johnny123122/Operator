@@ -115,7 +115,7 @@ await reply1231.react('✅')
 await reply1231.react('❌')
 const filter11 = (reaction, user) => reaction.emoji.name === '✅' && user.id == message.author.id
 reply1231.createReactionCollector(filter11, { maxMatches: 1 })
-  .on('collect', async () => await reply1231.edit(kickyes1) && member1.ban(reason1));
+  .on('collect', async () => await reply1231.edit(kickyes1) && member1.ban());
   const filter121 = (reaction, user) => reaction.emoji.name === '❌' && user.id == message.author.id
   reply1231.createReactionCollector(filter121, { maxMatches: 1 })
     .on('collect', async () => await reply1231.edit(kickno1));
