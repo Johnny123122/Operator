@@ -969,4 +969,4 @@ case 'restart':
   }
 );
 require('./server')();
-client.login('NzU1MDcwNjEyMDkwNjUwNzE0.X198Tg.geUg8g2pwLkFur22JFr4lUzo9Gs');
+client.login(process.env.token);
