@@ -51,13 +51,24 @@ client.on('message', async message => {
 
   let reason = args.slice(1).join(" "); //Here we specify the reason they got kicked, it is optional, but it helps for mod logs.
   if (!reason) reason = "No reason provided."; //If they don't specify a reason, we automatically set the reason as "No reason provided."
-
-  await member
-    .kick(reason) //Here we kick the user.
-    .catch(error => //We check if there is an error. If there is an error, we display it in the chat.
-      message.channel.send(`Unable to kick user because of: ${error}.`)
-    );
-  message.channel.send(`Successfully kicked ${member.user.tag}.`); //If there is no error, and the user was kicked, we let them know they were kicked successfuly.
+  const yesorno = new MessageEmbed()
+  .setColor('BLUE')
+  .setTitle(`Are you sure you'd like to kick ${member}?`)
+  .setDescription('React with ✅ or ❌ within the next 15 seconds confirming you\'d like to kick ' + member + '!')
+  .setFooter(`Caused by: ${message.author.tag}`, message.author.displayAvatarURL())
+  const kickyes = new MessageEmbed()
+  .setTitle(`${member} has been sucessfully kicked!`)
+  const kickno = new MessageEmbed()
+  .setTitle(`Cancelled the kick with target ${member.tag}`)
+  const reply123 = await message.reply(yesorno)
+  await reply123.react('✅');
+  const filter = (reaction, user) => reaction.emoji.name === '✅' && user.id == message.author.id
+  reply123.createReactionCollector(filter, { maxMatches: 1 })
+    .on('collect', async () => await reply123.edit(kickyes), member.kick(reason));
+    await reply123.react('❌');
+  const filter = (reaction, user) => reaction.emoji.name === '❌' && user.id == message.author.id
+  reply123.createReactionCollector(filter, { maxMatches: 1 })
+    .on('collect', async () => await reply123.edit(kickno));
   break
          case 'meme':
         const randomPuppy = require('random-puppy');
