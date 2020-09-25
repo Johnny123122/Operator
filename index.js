@@ -91,8 +91,11 @@ client.on('message', async message => {
     if (!message.member.hasPermission("BAN_MEMBERS")) //Checks if user has permission to run the command.
  return message.channel.send("You are not allowed to run that command.");
 
-let member1 = message.mentions.members.first(); //We specify the member we wish to kick.
-if (!member1) return message.channel.send("Please specify a valid user."); //If we don't specify a user, nor enter a valid user, it will will respond, letting us know to type a valid user.
+ const member1 = mentions.users.first()
+ if (member1) {
+   const member1 = message.guild.members.cache.get(target.id)
+ }
+   if (!member1) return message.channel.send("Please specify a valid user."); //If we don't specify a user, nor enter a valid user, it will will respond, letting us know to type a valid user.
 if (!member1.bannable) //This checks if the user can be banned, if their permissions don't enable them to get banned, such as Admins, it will let you know it can't ban them.
  return message.channel.send("Unable to ban specified user.");
 
@@ -115,7 +118,7 @@ await reply1231.react('✅')
 await reply1231.react('❌')
 const filter11 = (reaction, user) => reaction.emoji.name === '✅' && user.id == message.author.id
 reply1231.createReactionCollector(filter11, { maxMatches: 1 })
-  .on('collect', async () => await reply1231.edit(kickyes1) && member1.ban({reason: resaon1}));
+  .on('collect', async () => await reply1231.edit(kickyes1) && member.ban(reason1));
   const filter121 = (reaction, user) => reaction.emoji.name === '❌' && user.id == message.author.id
   reply1231.createReactionCollector(filter121, { maxMatches: 1 })
     .on('collect', async () => await reply1231.edit(kickno1));
