@@ -66,9 +66,6 @@ client.on('message', async message => {
   const filter = (reaction, user) => reaction.emoji.name === '✅' && user.id == message.author.id
   reply123.createReactionCollector(filter, { maxMatches: 1 })
     .on('collect', async () => await reply123.edit(kickyes), member.kick(reason));
-  const filter12 = (reaction, user) => reaction.emoji.name === '❌' && user.id == message.author.id
-  reply123.createReactionCollector(filter12, { maxMatches: 1 })
-    .on('collect', async () => await reply123.edit(kickno));
   break
          case 'meme':
         const randomPuppy = require('random-puppy');
