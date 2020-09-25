@@ -58,8 +58,6 @@ client.on('message', async message => {
   .setFooter(`Caused by: ${message.author.tag}`, message.author.displayAvatarURL())
   const kickyes = new MessageEmbed()
   .setTitle(`${member} has been sucessfully kicked!`)
-  const kickno = new MessageEmbed()
-  .setTitle(`Cancelled the kick with target ${member.tag}`)
   const reply123 = await message.reply(yesorno)
   await reply123.react('✅')
   const filter = (reaction, user) => reaction.emoji.name === '✅' && user.id == message.author.id
