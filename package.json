@@ -1,0 +1,25 @@
+{
+  "name": "Bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.3.1",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "moment": "^2.29.0",
+    "ms": "^2.1.2",
+    "node.js": "0.0.1-security",
+    "random-puppy": "^1.1.0",
+    "statcord.js": "^3.1.0",
+    "util": "^0.12.3",
+    "weather-js": "^2.0.0",
+    "ws": "^7.3.1"
+  }
+}
