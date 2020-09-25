@@ -91,10 +91,7 @@ client.on('message', async message => {
     if (!message.member.hasPermission("BAN_MEMBERS")) //Checks if user has permission to run the command.
  return message.channel.send("You are not allowed to run that command.");
 
- const member1 = mentions.users.first()
- if (member1) {
-   const member1 = message.guild.members.cache.get(target.id)
- }
+ const member1 = mentions.users.first() || message.guild.members.cache.get(target.id)
    if (!member1) return message.channel.send("Please specify a valid user."); //If we don't specify a user, nor enter a valid user, it will will respond, letting us know to type a valid user.
 if (!member1.bannable) //This checks if the user can be banned, if their permissions don't enable them to get banned, such as Admins, it will let you know it can't ban them.
  return message.channel.send("Unable to ban specified user.");
