@@ -912,13 +912,16 @@ case 'pong':
                 .setColor('GREEN')
                 .setFooter("Executed")
                 .setTimestamp()
+            const hiddenembed = new MessageEmbed()
+            .setColor('RED')
+            .setTitle('Evaluation hidden by evaluator.')
     
                 const reply12 = await message.channel.send(embed123)
                 await reply12.react('❌');
               
                 const filter = (reaction, user) => reaction.emoji.name === '❌' && user.id == message.author.id
                 reply12.createReactionCollector(filter, { maxMatches: 1 })
-                  .on('collect', async () => await reply12.delete());
+                  .on('collect', async () => await reply12.edit(hiddenembed));
     } catch (err) {
         const embed1234 = new MessageEmbed()
             .setAuthor("Test Code", "https://i.imgur.com/hyS5l2c.png")
