@@ -91,22 +91,22 @@ client.on('message', async message => {
     if (!message.member.hasPermission("BAN_MEMBERS")) //Checks if user has permission to run the command.
  return message.channel.send("You are not allowed to run that command.");
 
- const member1 = message.mentions.users.first()
+ const member1 = message.mentions.users.first().id
    if (!member1) return message.channel.send("Please specify a valid user."); //If we don't specify a user, nor enter a valid user, it will will respond, letting us know to type a valid user.
 
 let reason1 = args.slice(1).join(" "); //Here we specify the reason they got kicked, it is optional, but it helps for mod logs.
 if (!reason1) reason1 = "No reason provided."; //If they don't specify a reason, we automatically set the reason as "No reason provided."
 const yesorno1 = new MessageEmbed()
 .setColor('BLUE')
-.setTitle(`Are you sure you'd like to ban ${member1.user.tag}?`)
-.setDescription(`React with ✅ or ❌ within the next 15 seconds confirming you\'d like to ban <@${member1.id}> !`)
+.setTitle(`Are you sure you'd like to ban ${member1.tag}?`)
+.setDescription(`React with ✅ or ❌ within the next 15 seconds confirming you\'d like to ban <@${member1}> !`)
 .setFooter(`Caused by: ${message.author.tag}`, message.author.displayAvatarURL())
 const kickyes1 = new MessageEmbed()
-.setTitle(`${member1.user.tag} has been sucessfully ban!`)
+.setTitle(`${member1.tag} has been sucessfully ban!`)
 .setColor('GREEN')
 const kickno1 = new MessageEmbed()
 .setColor('RED')
-.setTitle(`Cancelled the ban with target ${member1.user.tag}`)
+.setTitle(`Cancelled the ban with target ${member1.tag}`)
 const reply1231 = await message.reply(yesorno1)
 await reply1231.react('✅')
 await reply1231.react('❌')
