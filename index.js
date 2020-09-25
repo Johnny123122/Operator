@@ -98,9 +98,26 @@ if (!member1.bannable) //This checks if the user can be banned, if their permiss
 
 let reason1 = args.slice(1).join(" "); //Here we specify the reason they got kicked, it is optional, but it helps for mod logs.
 if (!reason1) reason1 = "No reason provided."; //If they don't specify a reason, we automatically set the reason as "No reason provided."
-member1.send(`You've been banned from ${message.guild.name}, with reason ${reason2}!`)
-message.guild.members.ban(member1, { reason: reason1 }).catch(err => console.log(err));
-message.channel.send(`Successfully banned ${member1.user.tag}.`); //If there is no error, and the user was kicked, we let them know they were kicked successfuly.
+member1.send(`You've been banned from ${message.guild.name}, with reason ${reason1}!`)
+const yesorno1 = new MessageEmbed()
+.setColor('BLUE')
+.setTitle(`Are you sure you'd like to ban ${member1.user.tag}?`)
+.setDescription(`React with ✅ or ❌ within the next 15 seconds confirming you\'d like to ban <@${member1.id}> !`)
+.setFooter(`Caused by: ${message.author.tag}`, message.author.displayAvatarURL())
+const kickyes1 = new MessageEmbed()
+.setTitle(`${member12.user.tag} has been sucessfully ban!`)
+.setColor('GREEN')
+const kickno1 = new MessageEmbed()
+.setColor('RED')
+.setTitle(`Cancelled the ban with target ${member1.user.tag}`)
+const reply1231 = await message.reply(yesorno1)
+await reply1231.react('✅')
+await reply1231.react('❌')
+const filter11 = (reaction, user) => reaction.emoji.name === '✅' && user.id == message.author.id
+reply1231.createReactionCollector(filter11, { maxMatches: 1 })
+  const filter121 = (reaction, user) => reaction.emoji.name === '❌' && user.id == message.author.id
+  reply1231.createReactionCollector(filter121, { maxMatches: 1 })
+    .on('collect', async () => await reply1231.edit(kickno1));
 break
        case 'vibecheck':
        if (!message.member.hasPermission('ADMINISTRATOR'))
