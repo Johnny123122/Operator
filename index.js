@@ -91,7 +91,12 @@ client.on('message', async message => {
     if (!message.member.hasPermission("BAN_MEMBERS")) //Checks if user has permission to run the command.
  return message.channel.send("You are not allowed to run that command.");
 
- const member1 = mentions.users.first() || message.guild.members.cache.get(target.id)
+ const member1 = mentions.users.first() 
+ if (!member1)
+ try{
+  const member1 = mentions.users.first()
+  if (target) {
+    const targetedUser = message.guild.members.cache.get(target.id)
    if (!member1) return message.channel.send("Please specify a valid user."); //If we don't specify a user, nor enter a valid user, it will will respond, letting us know to type a valid user.
 if (!member1.bannable) //This checks if the user can be banned, if their permissions don't enable them to get banned, such as Admins, it will let you know it can't ban them.
  return message.channel.send("Unable to ban specified user.");
@@ -101,15 +106,15 @@ if (!reason1) reason1 = "No reason provided."; //If they don't specify a reason,
 member1.send(`You've been banned from ${message.guild.name}, with reason ${reason1}!`)
 const yesorno1 = new MessageEmbed()
 .setColor('BLUE')
-.setTitle(`Are you sure you'd like to ban ${member1.user.tag}?`)
-.setDescription(`React with ✅ or ❌ within the next 15 seconds confirming you\'d like to ban <@${member1.id}> !`)
+.setTitle(`Are you sure you'd like to ban ${targetedUser.tag}?`)
+.setDescription(`React with ✅ or ❌ within the next 15 seconds confirming you\'d like to ban <@${targetedUser}> !`)
 .setFooter(`Caused by: ${message.author.tag}`, message.author.displayAvatarURL())
 const kickyes1 = new MessageEmbed()
-.setTitle(`${member1.user.tag} has been sucessfully ban!`)
+.setTitle(`${targetedUser.tag} has been sucessfully ban!`)
 .setColor('GREEN')
 const kickno1 = new MessageEmbed()
 .setColor('RED')
-.setTitle(`Cancelled the ban with target ${member1.user.tag}`)
+.setTitle(`Cancelled the ban with target ${targetedUser.tag}`)
 const reply1231 = await message.reply(yesorno1)
 await reply1231.react('✅')
 await reply1231.react('❌')
