@@ -949,10 +949,12 @@ case 'restart':
   client.login(process.env.token)
     break
       case 'help':
+        let announcement = 'The ban command is currently, on maitainance mode. Were trying to tidy things up on our ends, please stay calm!'
         let embed =  new MessageEmbed()
           .setTitle('Here\'s a list of my commands!')
           .setColor('RANDOM')
           .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL())
+          .addField('Announcement', announcement)
           .setThumbnail(client.user.displayAvatarURL());
         if (!args[0])
           embed
