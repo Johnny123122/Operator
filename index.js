@@ -54,7 +54,7 @@ client.on('message', async message => {
   const yesorno = new MessageEmbed()
   .setColor('BLUE')
   .setTitle(`Are you sure you'd like to kick ${member,tag}?`)
-  .setDescription('React with ✅ or ❌ within the next 15 seconds confirming you\'d like to kick ' + member + '!')
+  .setDescription('React with ✅ or ❌ within the next 15 seconds confirming you\'d like to kick ' + member.tag + '!')
   .setFooter(`Caused by: ${message.author.tag}`, message.author.displayAvatarURL())
   const kickyes = new MessageEmbed()
   .setTitle(`${member} has been sucessfully kicked!`)
