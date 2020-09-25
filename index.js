@@ -952,12 +952,12 @@ case 'restart':
       const urmom = new MessageEmbed()
       .setTitle(`Hello ${message.author.tag}!`)
       .setColor('RED')
-      .setDescription('It has came to my attention, you\'re trying to use the ban command! We\'re truly sorry for the inconvienece. We\'re tidying some things up on our end within this command. Please stay calm, info will be released within my support server. Check ops!invite for the link.')
-      .setFooter('Sincerely, Excel#888 - Operator\'s developer', `https://cdn.discordapp.com/avatars/700096978796937267/a_e11507e4f84c19beedcafb5395caab44.webp?size=128`)
+      .setDescription('It has came to my attention, you\'re trying to use the ban command! We\'re tidying some things up on our end within this command and truly sorry for the inconvience. Please stay calm, info will be released within my support server. Check ops!invite for the link.')
+      .setFooter('Sincerely, Excel#4599 - Operator\'s developer', `https://cdn.discordapp.com/avatars/700096978796937267/a_e11507e4f84c19beedcafb5395caab44.gif?size=128`)
       message.reply(urmom)
       break
       case 'help':
-        let announcement = 'The ban command is currently, on maitainance mode. Were trying to tidy things up on our ends, please stay calm!'
+        let announcement = 'The ban command is currently, on maitainance mode. Were trying to tidy things up on our ends, please stay calm!\nSincerely, Excel#4599 - Operator\'s developer')
         let embed =  new MessageEmbed()
           .setTitle('Here\'s a list of my commands!')
           .setColor('RANDOM')
