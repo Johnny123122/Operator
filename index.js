@@ -86,7 +86,7 @@ client.on('message', async message => {
           return message.channel.send("You can not send prefix more than 3 characters")
         }
         
-        if(args.join("") === default_prefix) {
+        if(args.join("") === 'ops!') {
           dbdbd.delete(`prefix_${message.guild.id}`)
          return await message.channel.send("Set Prefix to: ops!")
         }
