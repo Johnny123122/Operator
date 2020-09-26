@@ -901,7 +901,7 @@ case 'pong':
    const embed12122 = new MessageEmbed()
    .setColor('BLUE')
    .setTitle('Announcement By Operator\'s Developer')
-   .setDescription(message112121212)
+   .setDescription(message112121212 + '\nOperator\'s Developer, Excel#4599')
    .setFooter(`Invite the bot to your server, by using ops!invite!`, client.user.displayAvatarURL())
    message.channel.send(embed12122)
    break
