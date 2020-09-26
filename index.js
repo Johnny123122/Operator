@@ -895,7 +895,7 @@ case 'pong':
             break
    case 'gayrate':
    case 'howgay':
-     const excel12 = new MessageEMbed
+     const excel12 = new MessageEmbed()
     .setColor('RANDOM')
     .setTitle(`Gay Rate Machine`)
     .setDescription(`${guytorate.user} is 0% gay:gay_pride_flag:`)
