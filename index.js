@@ -966,7 +966,7 @@ case 'restart':
         .setColor('GREEN')
         .setTitle('Caculation Sucessful!')
         .setFooter(`Caculation by: ${message.author.tag}`, message.author.displayAvatarURL())
-        .addField("📥 Input", num1, operation, num2)
+        .addField("📥 Input", num1 + operation + num2)
         .addField("📤 Output",  math.calculate(num1, operation, num2))
         .setTimestamp()
         const hiddenembed1 = new MessageEmbed()
