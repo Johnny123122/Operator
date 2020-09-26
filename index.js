@@ -893,7 +893,7 @@ case 'pong':
             .setTimestamp();
             message.channel.send(embed1212)
             break
-   case 'howgay <@!573904358627082280>':
+   case 'howgay-<@!573904358627082280>':
      message.delete()
     const urmom1 = new MessageEmbed()
     .setColor('ORANGE')
