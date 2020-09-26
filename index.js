@@ -913,7 +913,7 @@ case 'pong':
     const excel1212 = new MessageEmbed()
     .setColor('RANDOM')
     .setTitle(`Gay Rate Machine`)
-    .setDescription(`${guytorate.user} is $0% gay:gay_pride_flag:`)
+    .setDescription(`${guytorate.user} is 0% gay:gay_pride_flag:`)
     .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL())
     if (guytorate.id == 700096978796937267) return message.channel.send(excel1212);
      const excel12 = new MessageEmbed()
