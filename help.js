@@ -118,5 +118,10 @@ module.exports = {
   aliases: ['N/A'],
   description: 'Sends feedback to the bot developers, do not abuse this command or you\'ll get blacklisted from this command.',
   format:'feedback <message>'
+},
+'setprefix': {
+  aliases: ['N/A'],
+  description: 'Set the guilds prefix of Operator.',
+  format:'setprefix <prefix>'
 }
 }
