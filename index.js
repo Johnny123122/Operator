@@ -895,14 +895,14 @@ case 'pong':
             break
    case 'gayrate':
    case 'howgay':
-    const guytorate = message.mentions.user.first()
+    const guytorate = message.mentions.members.first();
     if (!guytorate)
     return message.channel.send('You never mentioned who I need to gayrate!')
-    const howgay = Math. floor(Math. random() * (100 - 1 + 1)) + min
+    const howgay = Math. floor(Math. random() * (100 - 1 + 1)) + 1
     const urmom1 = new MessageEmbed()
     .setColor('RANDOM')
-    .setTitle(`How gay is ${guytorate.user.tag}?`)
-    .setDescription(`${guytorate.user} is ${howgay}% gay`)
+    .setTitle(`Gay Rate Machine`)
+    .setDescription(`${guytorate.user} is ${howgay}% gay:gay_pride_flag:`)
     .setTimestamp()
     .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL())
     message.channel.send(urmom1)
