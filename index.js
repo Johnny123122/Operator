@@ -836,27 +836,20 @@ case 'pong':
   .addField('API Latency', Math.round(client.ws.ping) + 'ms')
   await msg12121.edit(embed2000)
   break
-  case 'give-role':
-    if (!message.author.hasPermission('ADMINISTRATOR'))
+  case 'giverole':
+    if (!message.member.hasPermission('ADMINISTRATOR'))
     return;
-    const targetUser1221 = message.mentions.users.first()
+    const targetUser1221 = message.mentions.members.first()
     if (!targetUser1221) {
       return message.reply('Please specify someone to give a role to.')
     }
-  const roleName = message.content.split(`ops!give-role ${targetUser1221} `).join("");
-    const role565 = message.guild.roles.cache.find((role) => {
-      return role565.name === roleName
-    })
-    if (!role) {
-      message.reply(`There is no role with the name ${roleName}`)
-      return
-    }
+    const roleName = message.content.split(`-giverole ${targetUser1221} `).join("");
+      const role565 = message.guild.roles.cache.find(role => role.name === roleName);
    
-    const member1781 = message.guild.members.cache.get(targetUser1221.id)
-    member1781.roles.add(role)
-    let role1 = role.id
+    targetUser1221.roles.add(role565)
+    let role1 = role565.id
     let Embeddqwqw = new MessageEmbed()
-    .setDescription(`Added Role: <@&${role1}> to ${targetUser1221.tag}!`)
+    .setDescription(`Added Role: <@&${role1}> to ${targetUser1221.user.tag}!`)
     .setColor('GREEN')
     .setFooter(`Given by: ${message.author.tag}`, message.author.displayAvatarURL())
     message.channel.send(Embeddqwqw)
