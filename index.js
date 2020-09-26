@@ -131,7 +131,7 @@ if (prefix12 === null) prefix12 = 'ops!';
   .setColor('BLUE')
   .setTitle(`Are you sure you'd like to kick ${member12.user.tag}?`)
   .setDescription(`React with ✅ or ❌ within the next 15 seconds confirming you\'d like to kick <@${member12.id}> !`)
-  .setFooter(`Caused by: ${message.author.tag}`, message.author.displayAvatarURL())
+  .setFooter(`Caused by: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
   const kickyes = new MessageEmbed()
   .setTitle(`${member12.user.tag} has been sucessfully kicked!`)
   .setColor('GREEN')
@@ -159,7 +159,7 @@ if (prefix12 === null) prefix12 = 'ops!';
         .setTitle(`Here's your meme!`)
         .setDescription('Memes provided by me_irl and dankmeme')
         .setColor('RANDOM')
-        .setFooter(`Reuested by: ${message.author.tag}`, message.author.displayAvatarURL())
+        .setFooter(`Reuested by: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
 
         message.channel.send(embed2);
         break
@@ -181,12 +181,12 @@ let embed7723 = new MessageEmbed()
 .setDescription(`Banned: ${member2}, With reason: ${reason2}`)
 .setImage('https://i.imgflip.com/3jy2cq.jpg')
 .setColor('GREEN')
-.setFooter(`Vibechecked by: ${message.author.tag}`, message.author.displayAvatarURL())
+.setFooter(`Vibechecked by: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
 let embed3 = new MessageEmbed()
 .setTitle(`Vibechecking...`)
 .setDescription(`Banning: ${member2}`)
 .setColor('RED')
-.setFooter(`Vibechecked by: ${message.author.tag}`, message.author.displayAvatarURL())
+.setFooter(`Vibechecked by: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
 await message.channel.send(embed3).then(sentEmbed => {
   sentEmbed.edit(embed7723)
   })
@@ -233,7 +233,7 @@ await message.channel.send(embed3).then(sentEmbed => {
       .addField('Idle Users', members.filter(member => member.presence.status === 'idle').size, true)
       .addField('Offline Users', members.filter(member => member.presence.status === 'offline').size, true)
       .addField('AFK Timeout', afkTimeout / 60, true)
-      .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL())
+      .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
       .setTimestamp()
     message.channel.send(embed652)
   break
@@ -257,7 +257,7 @@ await message.channel.send(embed3).then(sentEmbed => {
     case 'developers':
     case 'devs':
     let embedssd = new MessageEmbed()
-    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL())
+    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
     .setColor('GREEN')
     .setTitle('Operator\'s Development Team:')
     .setThumbnail('https://cdn.discordapp.com/avatars/700096978796937267/a_e11507e4f84c19beedcafb5395caab44.gif?size=128')
@@ -352,7 +352,7 @@ const member7 = message.guild.member(user6);
 
 const embed8 = new MessageEmbed()
     .setColor('RANDOM')
-    .setThumbnail(client.users.cache.get(user6.id).displayAvatarURL())
+    .setThumbnail(client.users.cache.get(user6.id).displayAvatarURL({ dynamic: true }))
     .addField(`${user6.tag}`, `${user6}`, true)
     .addField("ID:", `${user6.id}`, true)
     .addField("Nickname:", `${member7.nickname !== null ? `${member7.nickname}` : 'None'}`, true)
@@ -363,7 +363,7 @@ const embed8 = new MessageEmbed()
     .addField("Joined The Server On", `${moment.utc(member7.joinedAt).format("dddd, MMMM Do YYYY")}`, true)
     .addField("Account Created On", `${moment.utc(user6.createdAt).format("dddd, MMMM Do YYYY")}`, true) 
     .addField("Roles:", member7.roles.cache.map(roles => `${roles}`).join(', '), true)
-    .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL())
+    .setFooter(`Requested by ${message.author.tag}`, member7.displayAvatarURL({ dynamic: true }))
 message.channel.send(embed8);
 break
     case 'giveaway':
@@ -429,7 +429,7 @@ break
     let embed9 = new MessageEmbed()
       .setTitle(`New poll!`)
       .setDescription(`${question}`)
-      .setFooter(`Poll By: ${message.author.tag}`, message.author.displayAvatarURL())
+      .setFooter(`Poll By: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
       .setColor(`RANDOM`);
     let messagee = await client.channels.cache.get(channel1.id).send(embed9);
     await messagee.react("👍");
@@ -548,7 +548,7 @@ let embed7771 = new MessageEmbed()
 .setDescription(`${message.author.tag} sent in some feedback!`)
 .addField('They sent the following feedback', feedback_message)
 .setThumbnail(message.author.displayAvatarURL())
-.setFooter(`Sent By: ${message.author.tag}`, message.author.displayAvatarURL())
+.setFooter(`Sent By: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
 client.channels.cache.get('755954222998224986').send(embed7771)
 break
   case 'emojis':
@@ -657,7 +657,7 @@ break
           `You did not specify a reason for the report!`
         );
       }
-      let Avatar = User.displayAvatarURL();
+      let Avatar = User.message.author.displayAvatarURL({ dynamic: true });
       let Channel = message.guild.channels.cache.find(
         (ch) => ch.name === "reports"
       );
@@ -712,7 +712,7 @@ case 'weather':
       .addField('Wind', current.winddisplay, true)
       .addField('Feels like', `${current.feelslike}°`, true)
       .addField('Humidity', `${current.humidity}%`, true)
-      .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL())
+      .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
 
 
       message.channel.send(weatherinfo)
@@ -736,7 +736,7 @@ case 'announce':
     .setTitle(`New announcement!`)
     .setDescription(`${MSG}`)
     .setColor("RANDOM")
-    .setFooter(`Announcement by: ${message.author.tag}`, message.author.displayAvatarURL());
+    .setFooter(`Announcement by: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }));
   rChannel.send(_);
 break
 case '8ball':
@@ -841,7 +841,7 @@ case '8ball':
   .setTitle('Invite the bot to your server!')
   .setURL('https://discord.com/oauth2/authorize?client_id=755070612090650714&permissions=201714758&scope=bot')
   .setDescription('Join the support server: https://discord.gg/fSTUtRF')
-  .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL())
+  .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
   message.channel.send(embed23)
   break
   case 'warn':
@@ -851,13 +851,13 @@ case '8ball':
  
     var missingPermissionsEmbed = new MessageEmbed() 
         .setColor(embedColor)
-        .setFooter(`Message by: ${message.author.tag}`, message.author.displayAvatarURL())
+        .setFooter(`Message by: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
         .setTitle('Insufficient Permissions!')
         .setDescription('You need the `MANAGE_MESSAGES` permission to use this command!')
         .setTimestamp();
     var missingArgsEmbed = new MessageEmbed()
         .setColor(embedColor)
-        .setFooter(`Message by: ${message.author.tag}`, message.author.displayAvatarURL())
+        .setFooter(`Message by: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
         .setTitle('Missing Arguments!')
         .setDescription('Usage: `warn [user-mention] [Reason]`')
         .setTimestamp();
@@ -872,13 +872,13 @@ case '8ball':
         .setTitle(`You've been warned in ${message.guild.name}`)
         .addField('Moderator', message.author.tag)
         .addField('Reason', reason11)
-        .setFooter(`Warned by: ${message.author.tag}`, message.author.displayAvatarURL())
+        .setFooter(`Warned by: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
         .setTimestamp();
         wUser.send(warningEmbed); 
     var warnSuccessfulEmbed = new MessageEmbed()
         .setColor(embedColor)
         .setTitle('User Successfully Warned!')
-        .setFooter(`Warning by: ${message.author.tag}`, message.author.displayAvatarURL());
+        .setFooter(`Warning by: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }));
         message.channel.send(warnSuccessfulEmbed)
         if (!warns[wUser.id])warns[wUser.id] = {
           warns: 0
@@ -896,7 +896,7 @@ case 'pong':
   const ws = require('ws')
   let embed100012 = new MessageEmbed()
   .setTitle('**Pinging...**')
-  .setFooter(`Requested By: ${message.author.tag}`, message.author.displayAvatarURL())
+  .setFooter(`Requested By: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
    let msg12121 = await message.channel.send(embed100012)
   let embed2000 = new MessageEmbed()
   .setTitle('Pong!🏓')
@@ -920,7 +920,7 @@ case 'pong':
     let Embeddqwqw = new MessageEmbed()
     .setDescription(`Added Role: <@&${role1}> to ${targetUser1221.user.tag}!`)
     .setColor('GREEN')
-    .setFooter(`Given by: ${message.author.tag}`, message.author.displayAvatarURL())
+    .setFooter(`Given by: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
     message.channel.send(Embeddqwqw)
     break
   
@@ -952,7 +952,7 @@ case 'pong':
               `\u3000 Model: ${core.model}`,
               `\u3000 Speed: ${core.speed}MHz`
             ])
-            .setFooter('Requested by: ' + message.author.tag, message.author.displayAvatarURL())
+            .setFooter('Requested by: ' + message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
             .setTimestamp();
             message.channel.send(embed1212)
             break
@@ -976,13 +976,13 @@ case 'pong':
     .setColor('RANDOM')
     .setTitle(`Gay Rate Machine`)
     .setDescription(`${guytorate.user} is 0% gay:gay_pride_flag:`)
-    .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL())
+    .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
     if (guytorate.id == 700096978796937267) return message.channel.send(excel1212);
      const excel12 = new MessageEmbed()
     .setColor('RANDOM')
     .setTitle(`Gay Rate Machine`)
     .setDescription(`${guytorate.user} is 100% gay:gay_pride_flag:`)
-    .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL())
+    .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
     if (message.member.id == 700096978796937267) return message.channel.send(excel12);
     const howgay = Math. floor(Math. random() * (100 - 1 + 1)) + 1
     const urmom1 = new MessageEmbed()
@@ -990,7 +990,7 @@ case 'pong':
     .setTitle(`Gay Rate Machine`)
     .setDescription(`${guytorate.user} is ${howgay}% gay:gay_pride_flag:`)
     .setTimestamp()
-    .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL())
+    .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
     message.channel.send(urmom1)
     break
    case 'eval':
@@ -1062,7 +1062,7 @@ case 'restart':
         const embed7712 = new MessageEmbed()
         .setColor('GREEN')
         .setTitle('Caculation Sucessful!')
-        .setFooter(`Caculation by: ${message.author.tag}`, message.author.displayAvatarURL())
+        .setFooter(`Caculation by: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
         .addField("Answer",  math.calculate(num1, operation, num2))
         .setTimestamp()
         const hiddenembed1 = new MessageEmbed()
@@ -1098,7 +1098,7 @@ break
         let embed =  new MessageEmbed()
           .setTitle('Here\'s a list of my commands!')
           .setColor('RANDOM')
-          .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL())
+          .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
           .addField('Announcement', announcement)
           .setThumbnail(client.user.displayAvatarURL());
         if (!args[0])
