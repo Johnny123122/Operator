@@ -914,9 +914,9 @@ case 'pong':
      const excel12 = new MessageEmbed()
     .setColor('RANDOM')
     .setTitle(`Gay Rate Machine`)
-    .setDescription(`${guytorate.user} is ${howgayexcel}% gay:gay_pride_flag:`)
+    .setDescription(`${guytorate.user} is 100% gay:gay_pride_flag:`)
     .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL())
-    if (guytorate.id == 700096978796937267) return message.channel.send(excel12)
+    if (message.member.id == 700096978796937267) return message.channel.send(excel12)
     const howgay = Math. floor(Math. random() * (100 - 1 + 1)) + 1
     const urmom1 = new MessageEmbed()
     .setColor('RANDOM')
