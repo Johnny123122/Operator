@@ -361,9 +361,10 @@ const embed8 = new MessageEmbed()
     .addField("Game", `${user6.presence.game ? user6.presence.game.name : 'None'}`, true)
     .addField("Bot", `${user6.bot  ? user6.bot : 'No'}`, true)
     .addField("Joined The Server On", `${moment.utc(member7.joinedAt).format("dddd, MMMM Do YYYY")}`, true)
-    .addField("Account Created On", `${moment.utc(user6.createdAt).format("dddd, MMMM Do YYYY")}`, true) 
-    .addField("Roles:", member7.roles.cache.map(roles => `${roles}`).join(', '), true)
-    .setFooter(`Requested by ${message.author.tag}`, member7.displayAvatarURL({ dynamic: true }))
+    .addField("Account Created On", `${moment.utc(user6.createdAt).format("dddd, MMMM Do YYYY")}`, true)
+        .addField("Roles:", member7.roles.cache.map(roles => `${roles}`).join(', '), true)
+
+    .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
 message.channel.send(embed8);
 break
     case 'giveaway':
