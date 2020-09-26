@@ -51,6 +51,7 @@ client.on('message', async message => {
     return message.channel.send("Unable to kick specified user.");
   if (member12.hasPermission('ADMINISTRATOR'))
   return message.reply('That user is a mod/admin I can\'t do that!')
+  if (member12.id == message.author.id) return message.reply('You can\'t kick yourself!')
 
   let reason = args.slice(1).join(" "); //Here we specify the reason they got kicked, it is optional, but it helps for mod logs.
   if (!reason) reason = "No reason provided."; //If they don't specify a reason, we automatically set the reason as "No reason provided."
