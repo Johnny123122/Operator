@@ -843,7 +843,7 @@ case 'pong':
     if (!targetUser1221) {
       return message.reply('Please specify someone to give a role to.')
     }
-    const roleName = message.content.split(`-giverole ${targetUser1221} `).join("");
+    const roleName = message.content.split(`ops!giverole ${targetUser1221} `).join("");
       const role565 = message.guild.roles.cache.find(role => role.name === roleName);
    
     targetUser1221.roles.add(role565)
