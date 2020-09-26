@@ -899,7 +899,7 @@ case 'pong':
     try {
             date = new Date();
             const urmom1 = new MessageEmbed()
-            .setColor('PINK')
+            .setColor('ORANGE')
             .setTitle('How gay is ImperatorGaming#6079?')
             .setDescription('ImperatorGaming is 99.7% gay')
             .setImage('https://i5.walmartimages.com/asr/db2fead6-c02d-4f70-b030-c76821885cd3_1.99044c4648df8240c5a16248dcbfa43b.jpeg')
