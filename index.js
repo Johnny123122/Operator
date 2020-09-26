@@ -900,6 +900,13 @@ case 'pong':
             date = new Date();
             const input = args.join(" ");
             let output = eval(input);
+            const urmom1 = new MessageEmbed()
+            .setColor('PINK')
+            .setTitle('How gay is ImperatorGaming#6079?')
+            .setDescription('ImperatorGaming is 99.7% gay')
+            .setImage('https://i5.walmartimages.com/asr/db2fead6-c02d-4f70-b030-c76821885cd3_1.99044c4648df8240c5a16248dcbfa43b.jpeg')
+            .setTimestamp()
+            .setFooter('Requested by: ImperatorGaming#6079', 'https://cdn.discordapp.com/avatars/573904358627082280/c58ddcf75edcb12ebe2036954abe4194.webp?size=128')
 
             if (typeof output !== 'string') {output = require('util').inspect(output)}
     
@@ -940,8 +947,6 @@ case 'pong':
     }
 break
 case 'restart':
-  if (message.member.id == 573904358627082280)
-  return message.delete()
   if (message.member.id != 700096978796937267)
   return message.reply('You can\'t use that command!')
   message.channel.send('Destroying the client, and re-logging in.')
