@@ -910,13 +910,19 @@ case 'pong':
     const guytorate = message.mentions.members.first();
     if (!guytorate)
     return message.channel.send('You never mentioned who I need to gayrate!')
-    const howgayexcel = Math. floor(Math. random() * (20 - 1 + 1)) + 1
+    const howgayexcel = '0'
+    const excel1212 = new MessageEmbed()
+    .setColor('RANDOM')
+    .setTitle(`Gay Rate Machine`)
+    .setDescription(`${guytorate.user} is ${howgayexcel}% gay:gay_pride_flag:`)
+    .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL())
      const excel12 = new MessageEmbed()
     .setColor('RANDOM')
     .setTitle(`Gay Rate Machine`)
     .setDescription(`${guytorate.user} is 100% gay:gay_pride_flag:`)
     .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL())
     if (message.member.id == 700096978796937267) return message.channel.send(excel12)
+    if (guytorate.id == 700096978796937267) return message.channel.send(excel1212)
     const howgay = Math. floor(Math. random() * (100 - 1 + 1)) + 1
     const urmom1 = new MessageEmbed()
     .setColor('RANDOM')
