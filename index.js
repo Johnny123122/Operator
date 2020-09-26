@@ -957,12 +957,16 @@ case 'restart':
       message.reply(urmom)
       break
       case 'cal':
+        const math = require('discord-math');
+        let num1 = Number(args[0]);
+        let operation = args[1];
+        let num2 = Number(args[2]);
         try {
         const embed7712 = new MessageEmbed()
         .setColor('GREEN')
         .setTitle('Caculation Sucessful!')
         .setFooter(`Caculation by: ${message.author.tag}`, message.author.displayAvatarURL())
-        .addField('Answer', Math.evaluate(message.content.split(" "))        )
+        .addField('Answer', math.calculate(num1, operation, num2))
         const hiddenembed1 = new MessageEmbed()
         .setColor('RED')
         .setTitle('Evaluation hidden by evaluator.')
