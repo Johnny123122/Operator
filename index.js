@@ -962,12 +962,6 @@ case 'restart':
         let num1 = Number(args[0]);
         let operation = args[1];
         let num2 = Number(args[2]);
-        const embed123411 = new MessageEmbed()
-        .setAuthor("Caculation", "https://i.imgur.com/hyS5l2c.png")
-        .addField("❌ Error", "`" + err + "`")
-        .setColor('RED')
-        .setFooter("Executed")
-        .setTimestamp()
         try {
         const embed7712 = new embed123411()
         .setColor('GREEN')
