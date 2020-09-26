@@ -901,7 +901,7 @@ case 'pong':
     min = Math. ceil(0);
     max = Math. floor(100);
     function getRandomIntInclusive(min, max) {
-      Math. floor(Math. random() * (max - min + 1)) + min
+      Math.floor(Math. random() * (max - min + 1)) + min
     }
     const urmom1 = new MessageEmbed()
     .setColor('RANDOM')
