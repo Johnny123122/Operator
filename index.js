@@ -896,19 +896,20 @@ case 'pong':
    case 'gayrate':
    case 'howgay':
     const guytorate = message.mentions.user.first()
+    if (!guytorate)
+    return message.channel.send('You never mentioned who I need to gayrate!')
     function getRandomIntInclusive(min, max) {
       min = Math. ceil(0);
       max = Math. floor(100);
       return Math. floor(Math. random() * (max - min + 1)) + min; 
     }
     const urmom1 = new MessageEmbed()
-    .setColor('ORANGE')
+    .setColor('RANDOM')
     .setTitle(`How gay is ${guytorate.user.tag}?`)
     .setDescription(`${guytorate.user} is ${getRandomIntInclusive}% gay`)
-    .setImage('https://i5.walmartimages.com/asr/db2fead6-c02d-4f70-b030-c76821885cd3_1.99044c4648df8240c5a16248dcbfa43b.jpeg')
     .setTimestamp()
     .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL())
-    message.reply(urmom1)
+    message.channel.send(urmom1)
     break
    case 'eval':
      if (message.member.id != 700096978796937267)
