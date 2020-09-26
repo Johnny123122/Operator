@@ -78,9 +78,9 @@ if (prefix12 === null) prefix12 = 'ops!';
           return message.channel.send("Please give the prefix that you want to set")
         } 
         
-        if(args.join(" ") === 'delete') {
+        if(args.join(" ") === 'default') {
           dbdbd.delete(`prefix_${message.guild.id}`)
-         return await message.channel.send("Set Prefix to: ops!")
+         return await message.channel.send("Set the prefix to default: ops!")
         }
         
         if(args[1]) {
@@ -92,7 +92,7 @@ if (prefix12 === null) prefix12 = 'ops!';
         }
         
         dbdbd.set(`prefix_${message.guild.id}`, args[0])
-      await message.channel.send(`Set Bot Prefix to ${args[0]}`)
+      await message.channel.send(`Set the current guilds prefix to: ${args[0]}`)
       break
       case 'say':
       case 'repeat':
