@@ -123,5 +123,10 @@ module.exports = {
   aliases: ['N/A'],
   description: 'Set the guilds prefix of Operator.',
   format:'setprefix <prefix>'
+},
+'joke': {
+  aliases: ['N/A'],
+  description: 'Sends a random joke within an embed model.',
+  format:'joke'
 }
 }

@@ -71,6 +71,13 @@ if (prefix12 === null) prefix12 = 'ops!';
                 message.channel.send(embed12121)
               }
                 break
+                case 'joke':
+                  const { Random121 } = require("something-random-on-discord")
+            const random11 = new Random121();
+              
+                let data = await random11.getJoke()
+                message.channel.send(data)
+                break
       case 'setprefix':
         const dbdbd = require('quick.db')
         if(!message.member.hasPermission("ADMINISTRATOR")) {
