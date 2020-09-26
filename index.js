@@ -72,8 +72,8 @@ if (prefix12 === null) prefix12 = 'ops!';
               }
                 break
                 case 'joke':
-                  const { Random121 } = require("something-random-on-discord")
-            const random11 = new Random121();
+                  const { Random } = require("something-random-on-discord")
+            const random11 = new Random();
               
                 let data = await random11.getJoke()
                 message.channel.send(data)
