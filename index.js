@@ -31,7 +31,7 @@ let prefix1212 = dbdd.get(`prefix_${message.guild.id}`);
 if (prefix1212 === null) prefix1212 = 'ops!';
 client.on('message', async message => {
   if (message.content.startsWith(prefix1212)) {
-    let args = message.content.slice(config.prefix.length).split(' ');
+    let args = message.content.slice(prefix1212.length).split(' ');
     let command = args.shift().toLowerCase();
     statcord.postCommand(command, message.author.id);
     const dbd = require('quick.db')
