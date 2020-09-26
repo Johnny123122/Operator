@@ -994,7 +994,7 @@ case 'restart':
         await reply12231.react('❌');
       
         const filter12121 = (reaction, user) => reaction.emoji.name === '❌' && user.id == message.author.id
-        reply122.createReactionCollector(filter12121, { maxMatches: 1 })
+        reply12231.createReactionCollector(filter12121, { maxMatches: 1 })
           .on('collect', async () => await reply12231.edit(hiddenembe1));
 }
 break
