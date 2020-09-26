@@ -31,7 +31,13 @@ client.on('message', async message => {
     let args = message.content.slice(config.prefix.length).split(' ');
     let command = args.shift().toLowerCase();
     statcord.postCommand(command, message.author.id);
+    if (blockedUsers.includes(message.author.id)) return message.reply(`You're blacklisted from using Operator!`)
     switch (command) {
+      case 'blacklist':
+      if (message.member.id != 700096978796937267) return message.reply("You can't use this command!")
+      var blockedUsers = [];
+      let user12 = message.mentions.users.first();
+      if (user12 && !blockedUsers.includes(user12.id)) blockedUsers.push(user12.id);
       case 'say':
       case 'repeat':
         if (args.includes('@everyone'))return message.reply('I won\'t repeat a message with a here ping in it!')
