@@ -27,8 +27,8 @@ client.on("ready", async () => {
     statcord.autopost();
 });
 const dbdd = require('quick.db')
-let prefix1212 = dbdd.get(`prefix_${message.guild.id}`);
-if (prefix1212 === null) prefix1212 = 'ops!';
+const prefix1212 = dbdd.get(`prefix_${message.guild.id}`);
+if (prefix1212 === null) let prefix1212 = 'ops!';
 client.on('message', async message => {
   if (message.content.startsWith(prefix1212)) {
     let args = message.content.slice(prefix1212.length).split(' ');
