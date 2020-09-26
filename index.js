@@ -915,7 +915,6 @@ case 'pong':
     .setColor('RANDOM')
     .setTitle(`Gay Rate Machine`)
     .setDescription(`${guytorate.user} is ${howgayexcel}% gay:gay_pride_flag:`)
-    .setTimestamp()
     .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL())
     if (guytorate.id == 700096978796937267) return message.channel.send(excel12)
     const howgay = Math. floor(Math. random() * (100 - 1 + 1)) + 1
