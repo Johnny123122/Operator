@@ -897,7 +897,7 @@ case 'pong':
    case 'devmessage':
    if (message.member.id != 700096978796937267) return message.reply('You can\'t use that command!')
    let message112121212 = args.join(" ")
-   if (!message) return message.reply('C\'mon you\'re my dev you should know to put the input!')
+   if (!message112121212) return message.reply('C\'mon you\'re my dev you should know to put the input!')
    const embed12122 = new MessageEmbed()
    .setColor('BLUE')
    .setTitle('Announcement By Operator\'s Developer')
