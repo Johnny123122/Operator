@@ -900,13 +900,11 @@ case 'pong':
     return message.channel.send('You never mentioned who I need to gayrate!')
     min = Math. ceil(0);
     max = Math. floor(100);
-    function getRandomIntInclusive(min, max) {
-      Math.floor(Math. random() * (max - min + 1)) + min
-    }
+    const howgay = Math.floor(Math. random() * (max - min + 1)) + min
     const urmom1 = new MessageEmbed()
     .setColor('RANDOM')
     .setTitle(`How gay is ${guytorate.user.tag}?`)
-    .setDescription(`${guytorate.user} is ${getRandomIntInclusive}% gay`)
+    .setDescription(`${guytorate.user} is ${howgay}% gay`)
     .setTimestamp()
     .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL())
     message.channel.send(urmom1)
