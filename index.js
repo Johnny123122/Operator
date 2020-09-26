@@ -27,14 +27,17 @@ client.on("ready", async () => {
     statcord.autopost();
 });
 client.on('message', async message => {
-  if (message.content.startsWith(config.prefix)) {
-    let args = message.content.slice(config.prefix.length).split(' ');
+  const dbdb1 = require('quick.db')
+let prefix12 = dbdb1.get(`prefix_${message.guild.id}`);
+if (prefix12 === null) prefix12 = 'ops!';
+  if (message.content.startsWith(prefix12)) {
+    let args = message.content.slice(prefix12.length).split(' ');
     let command = args.shift().toLowerCase();
     statcord.postCommand(command, message.author.id);
     const dbd = require('quick.db')
                 let blacklist121 = await dbd.fetch(`blacklist_${message.author.id}`)
             
-            if (blacklist121 === "Blacklisted") return message.reply("You're blacklisted from using Operator by my developer!")    
+            if (blacklist121 === "Blacklisted") return message.reply("You're blacklisted from using Operator by my developer!")
             switch (command) {
         case 'blacklist':
           const db = require("quick.db")
@@ -65,6 +68,32 @@ client.on('message', async message => {
                 message.channel.send(embed12121)
               }
                 break
+      case 'setprefix':
+        const dbdbd = require('quick.db')
+        if(!message.member.hasPermission("ADMINISTRATOR")) {
+          return message.channel.send("You are not allowed or do not have permission to change prefix")
+        }
+        
+        if(!args[0]) {
+          return message.channel.send("Please give the prefix that you want to set")
+        } 
+        
+        if(args[1]) {
+          return message.channel.send("You can not set prefix a double argument")
+        }
+        
+        if(args[0].length > 5) {
+          return message.channel.send("You can not send prefix more than 3 characters")
+        }
+        
+        if(args.join("") === 'ops!') {
+          dbdbd.delete(`prefix_${message.guild.id}`)
+         return await message.channel.send("Set Prefix to: ops!")
+        }
+        
+        dbdbd.set(`prefix_${message.guild.id}`, args[0])
+      await message.channel.send(`Set Bot Prefix to ${args[0]}`)
+      break
       case 'say':
       case 'repeat':
         if (args.includes('@everyone'))return message.reply('I won\'t repeat a message with a here ping in it!')
@@ -1097,4 +1126,4 @@ break
   }
 );
 require('./server')();
-client.login(process.env.token);
+client.login('NzU1MDcwNjEyMDkwNjUwNzE0.X198Tg.geUg8g2pwLkFur22JFr4lUzo9Gs');
