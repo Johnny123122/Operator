@@ -952,7 +952,7 @@ case 'pong':
               
                 const filter = (reaction, user) => reaction.emoji.name === '❌' && user.id == message.author.id
                 reply12.createReactionCollector(filter, { maxMatches: 1 })
-                  .on('collect', async () => await reply12.edit(hiddenembed));
+                  .on('collect', async () => await reply12.edit(hiddenembed) && reply12.reactions.removeAll());
     } catch (err) {
         const embed1234 = new MessageEmbed()
             .setAuthor("Test Code", "https://i.imgur.com/hyS5l2c.png")
@@ -1008,7 +1008,7 @@ case 'restart':
           
             const filter1111 = (reaction, user) => reaction.emoji.name === '❌' && user.id == message.author.id
             reply122.createReactionCollector(filter1111, { maxMatches: 1 })
-              .on('collect', async () => await reply122.edit(hiddenembed1));
+              .on('collect', async () => await reply122.edit(hiddenembed1) && reply122.reactions.removeAll());
 } catch (err) {
     const embed12341 = new MessageEmbed()
         .setAuthor("Caculation", "https://i.imgur.com/hyS5l2c.png")
@@ -1024,7 +1024,7 @@ case 'restart':
       
         const filter12121 = (reaction, user) => reaction.emoji.name === '❌' && user.id == message.author.id
         reply12231.createReactionCollector(filter12121, { maxMatches: 1 })
-          .on('collect', async () => await reply12231.edit(hiddenembe1));
+          .on('collect', async () => await reply12231.edit(hiddenembe1) && reply12231.reactions.removeAll());
 }
 break
       case 'help':
