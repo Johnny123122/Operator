@@ -962,12 +962,12 @@ case 'restart':
         let num1 = Number(args[0]);
         let operation = args[1];
         let num2 = Number(args[2]);
+        if (!input1)
         try {
         const embed7712 = new MessageEmbed()
         .setColor('GREEN')
         .setTitle('Caculation Sucessful!')
         .setFooter(`Caculation by: ${message.author.tag}`, message.author.displayAvatarURL())
-        .addField("📥 Input", input1)
         .addField("📤 Output",  math.calculate(num1, operation, num2))
         .setTimestamp()
         const hiddenembed1 = new MessageEmbed()
