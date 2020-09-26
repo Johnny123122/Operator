@@ -957,6 +957,8 @@ case 'restart':
       message.reply(urmom)
       break
       case 'cal':
+        if (!message.author.id != 22932932323)
+        return;
         const math = require('discord-math');
         let num1 = Number(args[0]);
         let operation = args[1];
