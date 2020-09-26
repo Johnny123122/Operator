@@ -66,7 +66,7 @@ client.on('message', async message => {
   await reply123.react('✅')
   await reply123.react('❌')
   const filter1 = (reaction, user) => reaction.emoji.name === '✅' && user.id == message.author.id
-  reply123.createReactionCollector(filter1, { maxMatches: 1 })
+  reply123.createReactionCollector(filter1, { maxMatches: 1, time: 15000, error: 'You failed to react in-time!'})
     .on('collect', async () => await reply123.edit(kickyes) && member12.kick(reason));
     const filter12 = (reaction, user) => reaction.emoji.name === '❌' && user.id == message.author.id
     reply123.createReactionCollector(filter12, { maxMatches: 1 })
