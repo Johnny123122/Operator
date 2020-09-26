@@ -367,6 +367,36 @@ const embed8 = new MessageEmbed()
     .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
 message.channel.send(embed8);
 break
+case 'cat':
+  const fetch121 = require('node-fetch');
+  
+  const subreddits = [
+    'cat',
+    'cats',
+    'catpics',
+    'kittens'
+  ];
+      const data121 = await fetch121(`https://imgur.com/r/${subreddits[Math.floor(Math.random() * subreddits.length)]}/hot.json`)
+        .then(response => response.json())
+        .then(body => body.data);
+      const selected = data121[Math.floor(Math.random() * data121.length)];
+      return message.channel.send(new MessageEmbed().setImage(`https://imgur.com/${selected.hash}${selected.ext.replace(/\?.*/, '')}`).setTitle('Purr!').setColor('RANDOM').setFooter(`Requested By: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true})));
+      break
+      case 'dog':
+  const fetch121121 = require('node-fetch');
+  
+  const subreddits1 = [
+    'dog',
+    'dogs',
+    'dogpics',
+    'puppies'
+  ];
+      const data1211 = await fetch121121(`https://imgur.com/r/${subreddits1[Math.floor(Math.random() * subreddits1.length)]}/hot.json`)
+        .then(response => response.json())
+        .then(body => body.data);
+      const selected1 = data1211[Math.floor(Math.random() * data1211.length)];
+      return message.channel.send(new MessageEmbed().setImage(`https://imgur.com/${selected1.hash}${selected1.ext.replace(/\?.*/, '')}`).setTitle('Woof!').setColor('RANDOM').setFooter(`Requested By: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true})));
+      break
     case 'giveaway':
     if (!message.member.hasPermission('MANAGE_MESSAGES'))
     return message.reply('You must have manage messages permission to create a giveaway!')
