@@ -65,32 +65,6 @@ client.on('message', async message => {
                 message.channel.send(embed12121)
               }
                 break
-      case 'setprefix':
-        const dbdbd = require('quick.db')
-        if(!message.member.hasPermission("ADMINISTRATOR")) {
-          return message.channel.send("You are not allowed or do not have permission to change prefix")
-        }
-        
-        if(!args[0]) {
-          return message.channel.send("Please give the prefix that you want to set")
-        } 
-        
-        if(args[1]) {
-          return message.channel.send("You can not set prefix a double argument")
-        }
-        
-        if(args[0].length > 3) {
-          return message.channel.send("You can not send prefix more than 3 characters")
-        }
-        
-        if(args.join("") === default_prefix) {
-          dbdbd.delete(`prefix_${message.guild.id}`)
-         return await message.channel.send("Set Prefix to: ops!")
-        }
-        
-        dbdbd.set(`prefix_${message.guild.id}`, args[0])
-      await message.channel.send(`Set Bot Prefix to ${args[0]}`)
-      break
       case 'say':
       case 'repeat':
         if (args.includes('@everyone'))return message.reply('I won\'t repeat a message with a here ping in it!')
