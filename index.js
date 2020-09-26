@@ -51,19 +51,22 @@ if (prefix12 === null) prefix12 = 'ops!';
               if (blacklist === "Not") {
                 db.set(`blacklist_${targetblacklist.id}`, "Blacklisted") 
                 let embed1212121 = new MessageEmbed()
-                .setDescription(`${targetblacklist} has been blacklisted!`)
+                .setDescription(`${targetblacklist} has been blacklisted by ${message.author.tag}!`)
+                .setColor('RED')
                 
                 message.channel.send(embed1212121)
               } else if (blacklist === "Blacklisted") {
                  db.set(`blacklist_${targetblacklist.id}`, "Not") 
                 let embed1212 = new MessageEmbed()
-                .setDescription(`${targetblacklist} has been unblacklisted!`)
+                .setDescription(`${targetblacklist} has been unblacklisted by ${message.author.tag}!`)
+                .setColor('GREEN')
                 
                 message.channel.send(embed1212)
               } else {
                  db.set(`blacklist_${targetblacklist.id}`, "Not") 
                 let embed12121 = new MessageEmbed()
-                .setDescription(`Set up data for ${targetblacklist}!`)
+                .setDescription(`Set up data for ${targetblacklist} by ${message.author.tag}!`)
+                .setColor('BLUE')
                 
                 message.channel.send(embed12121)
               }
