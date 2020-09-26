@@ -339,7 +339,7 @@ let muterole1 = message.guild.roles.cache.find(x => x.name === "Muted")
    break
    case 'userinfo':
    case 'whois':
-   const moment = require('moment');
+   const moment121 = require('moment');
 
 let user6;
 if (message.mentions.users.first()) {
@@ -360,8 +360,8 @@ const embed8 = new MessageEmbed()
     .addField("In Server", message.guild.name, true)
     .addField("Game", `${user6.presence.game ? user6.presence.game.name : 'None'}`, true)
     .addField("Bot", `${user6.bot  ? user6.bot : 'No'}`, true)
-    .addField("Joined The Server On", `${moment.utc(member7.joinedAt).format("dddd, MMMM Do YYYY")}`, true)
-    .addField("Account Created On", `${moment.utc(user6.createdAt).format("dddd, MMMM Do YYYY")}`, true)
+    .addField("Joined The Server On", `${moment121.utc(member7.joinedAt).format("dddd, MMMM Do YYYY")}`, true)
+    .addField("Account Created On", `${moment121.utc(user6.createdAt).format("dddd, MMMM Do YYYY")}`, true)
         .addField("Roles:", member7.roles.cache.map(roles => `${roles}`).join(', '), true)
 
     .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
