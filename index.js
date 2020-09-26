@@ -903,6 +903,7 @@ case 'pong':
    .setTitle('Announcement By Operator\'s Developer')
    .setDescription(message112121212)
    .setFooter(`Invite the bot to your server, by using ops!invite!`, client.user.displayAvatarURL())
+   message.channel.send(embed12122)
    break
    case 'gayrate':
    case 'howgay':
