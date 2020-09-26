@@ -49,6 +49,8 @@ client.on('message', async message => {
   if (!member12) return message.channel.send("Please specify a valid user."); //If we don't specify a user, nor enter a valid user, it will will respond, letting us know to type a valid user.
   if (!member12.kickable) //This checks if the user can be kicked, if their permissions don't enable them to get kicked, such as Admins, it will let you know it can't kick them.
     return message.channel.send("Unable to kick specified user.");
+  if (member12.hasPermission('ADMINISTRATOR'))
+  return message.reply('That user is a mod/admin I can\'t do that!')
 
   let reason = args.slice(1).join(" "); //Here we specify the reason they got kicked, it is optional, but it helps for mod logs.
   if (!reason) reason = "No reason provided."; //If they don't specify a reason, we automatically set the reason as "No reason provided."
