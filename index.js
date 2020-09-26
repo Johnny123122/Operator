@@ -962,7 +962,7 @@ case 'restart':
         .setColor('GREEN')
         .setTitle('Caculation Sucessful!')
         .setFooter(`Caculation by: ${message.author.tag}`, message.author.displayAvatarURL())
-        math.evaluate(message.content.split(" "))
+        .addField('Answer', math.evaluate(message.content.split(" "))        )
         const hiddenembed1 = new MessageEmbed()
         .setColor('RED')
         .setTitle('Evaluation hidden by evaluator.')
