@@ -116,17 +116,32 @@ module.exports = {
 },
 'feedback': {
   aliases: ['N/A'],
-  description: 'Sends feedback to the bot developers, do not abuse this command or you\'ll get blacklisted from this command.',
+  description: 'Sends feedback to the bot developers, do not abuse this command or you\'ll get blacklisted from this command',
   format:'feedback <message>'
 },
 'setprefix': {
   aliases: ['N/A'],
-  description: 'Set the guilds prefix of Operator.',
+  description: 'Set the guilds prefix of Operator',
   format:'setprefix <prefix>'
 },
 'joke': {
   aliases: ['N/A'],
-  description: 'Sends a random joke within an embed model.',
+  description: 'Sends a random joke within an embed model',
   format:'joke'
+},
+'dog': {
+  aliases: ['N/A'],
+  description: 'Sends a random dog photo within an embed model',
+  format:'dog'
+},
+'cat': {
+  aliases: ['N/A'],
+  description: 'Sends a random cat photo within an embed model',
+  format:'cat'
+},
+'bird': {
+  aliases: ['N/A'],
+  description: 'Sends a random bird photo within an embed model.',
+  format:'bird'
 }
 }
