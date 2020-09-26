@@ -957,6 +957,7 @@ case 'restart':
       message.reply(urmom)
       break
       case 'cal':
+        const input1 = args.join(" ")
         const math = require('discord-math');
         let num1 = Number(args[0]);
         let operation = args[1];
@@ -966,7 +967,7 @@ case 'restart':
         .setColor('GREEN')
         .setTitle('Caculation Sucessful!')
         .setFooter(`Caculation by: ${message.author.tag}`, message.author.displayAvatarURL())
-        .addField("📥 Input", num1 + operation + num2)
+        .addField("📥 Input", input1)
         .addField("📤 Output",  math.calculate(num1, operation, num2))
         .setTimestamp()
         const hiddenembed1 = new MessageEmbed()
