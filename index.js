@@ -853,7 +853,7 @@ case 'pong':
     }
    
     const member1781 = message.guild.members.cache.get(targetUser1221.id)
-    member1781.roles.add(role565)
+    member1781.roles.add(role)
     let role1 = role.id
     let Embeddqwqw = new MessageEmbed()
     .setDescription(`Added Role: <@&${role1}> to ${targetUser1221.tag}!`)
