@@ -78,17 +78,17 @@ if (prefix12 === null) prefix12 = 'ops!';
           return message.channel.send("Please give the prefix that you want to set")
         } 
         
+        if(args.join(" ") === 'delete') {
+          dbdbd.delete(`prefix_${message.guild.id}`)
+         return await message.channel.send("Set Prefix to: ops!")
+        }
+        
         if(args[1]) {
           return message.channel.send("You can not set prefix a double argument")
         }
         
         if(args[0].length > 5) {
           return message.channel.send("You can not send prefix more than 3 characters")
-        }
-        
-        if(args.join("") === 'ops!') {
-          dbdbd.delete(`prefix_${message.guild.id}`)
-         return await message.channel.send("Set Prefix to: ops!")
         }
         
         dbdbd.set(`prefix_${message.guild.id}`, args[0])
@@ -413,7 +413,7 @@ break
       if (!channel1) {
       return message.channel.send(`You did not mention the channel you want the poll to take place in!`);
     }
-    let question = message.content.split(`ops!poll ${channel1}`).join(" ");
+    let question = message.content.split(`${prefix12}poll ${channel1}`).join(" ");
     if (!question)
       return message.channel.send(`You did not specify your question!`);
     let embed9 = new MessageEmbed()
@@ -510,7 +510,7 @@ let questions = [
       );
     if (isNaN(args[0])) return message.channel.send(`That is not a number!`);
     let reason1111 = message.content.slice(
-      config.prefix.length + 9 + args[0].length + 1
+      prefix12.length + 9 + args[0].length + 1
     );
     if (!reason1111) {
       reason1111 = "No reason provided!";
@@ -527,7 +527,7 @@ let questions = [
       message.channel.bulkDelete(100)
   break
   case 'feedback':
-    let feedback_message = message.content.split(`ops!feedback `).join("");
+    let feedback_message = message.content.split(`${prefix12}feedback `).join("");
 if (message.member.id == 656978020933959727) return message.reply(`You've been blacklisted from using this command by official bot developers!`)
 if (!feedback_message) return message.reply('You didn\'t provide the feedback you want to send!')
 message.reply('Thanks for your feedback, my developers will review it when they get a chance!');
@@ -576,7 +576,7 @@ break
   if (!args[0])
   message.reply('You didn\'t mention if you want to create or delete a role!')
   if (args[0].toLowerCase() == "create") {
-    let rName = message.content.split(`${config.prefix}role create `).join("");
+    let rName = message.content.split(`${prefix12}role create `).join("");
     let rColor;
     args.forEach((arg) => {
       if (arg.startsWith("#")) {
@@ -641,7 +641,7 @@ break
     if (User == null) {
       return message.channel.send(`You did not mention a user!`);
     } else {
-      let Reason = message.content.slice(config.prefix.length + 22 + 7) || null;
+      let Reason = message.content.slice(prefix12.length + 22 + 7) || null;
       if (Reason == null) {
         return message.channel.send(
           `You did not specify a reason for the report!`
@@ -678,12 +678,6 @@ break
       Channel.send(Embed122);
     }
     break
-case 'send':
-if (message.member.id !=700096978796937267) return message.channel.send('You can\'t runt that command!')
-rChannel4 = message.mentions.channels.first()
-message1242222 = message.content.split(`ops!send ${rChannel4} `).join(" ");
-rChannel4.send(message1242222)
-break
 case 'weather':
   const weather = require('weather-js')
   if (!args[0]) return message.reply('You\'re required to enter a place to fetch the weather from!')
@@ -724,7 +718,7 @@ case 'announce':
     );
   console.log(rChannel);
   let MSG = message.content
-    .split(`${config.prefix}announce ${rChannel} `)
+    .split(`${prefix12}announce ${rChannel} `)
     .join(" ");
   if (!MSG)
     return message.channel.send(`You did not specify your message to send!`);
@@ -736,7 +730,7 @@ case 'announce':
   rChannel.send(_);
 break
 case '8ball':
-    let question1 = message.content.slice(config.prefix.length + 6);
+    let question1 = message.content.slice(prefix12.length + 6);
     if (!question1)
       return message.channel.send(`You did not specify your question!`);
     else {
@@ -908,7 +902,7 @@ case 'pong':
     if (!targetUser1221) {
       return message.reply('Please specify someone to give a role to.')
     }
-    const roleName = message.content.split(`ops!giverole ${targetUser1221} `).join("");
+    const roleName = message.content.split(`${prefix12}giverole ${targetUser1221} `).join("");
       const role565 = message.guild.roles.cache.find(role => role.name === roleName);
    
     targetUser1221.roles.add(role565)
