@@ -31,13 +31,40 @@ client.on('message', async message => {
     let args = message.content.slice(config.prefix.length).split(' ');
     let command = args.shift().toLowerCase();
     statcord.postCommand(command, message.author.id);
-    if (blockedUsers.includes(message.author.id)) return message.reply(`You're blacklisted from using Operator!`)
-    switch (command) {
-      case 'blacklist':
-      if (message.member.id != 700096978796937267) return message.reply("You can't use this command!")
-      var blockedUsers = [];
-      let user12 = message.mentions.users.first();
-      if (user12 && !blockedUsers.includes(user12.id)) blockedUsers.push(user12.id);
+    const dbd = require('quick.db')
+                let blacklist121 = await dbd.fetch(`blacklist_${message.author.id}`)
+            
+            if (blacklist121 === "Blacklisted") return message.reply("You're blacklisted from using Operator by my developer!")    
+            switch (command) {
+        case 'blacklist':
+          const db = require("quick.db")
+            
+              if (message.author.id != 700096978796937267) return message.reply("You can't use that command!")
+              const targetblacklist = message.mentions.users.first()
+              if (!targetblacklist) return message.reply("You didn't mention anyone to blacklist!")
+              
+              let blacklist = await db.fetch(`blacklist_${targetblacklist.id}`)
+              
+              if (blacklist === "Not") {
+                db.set(`blacklist_${targetblacklist.id}`, "Blacklisted") 
+                let embed1212121 = new MessageEmbed()
+                .setDescription(`${targetblacklist} has been blacklisted!`)
+                
+                message.channel.send(embed1212121)
+              } else if (blacklist === "Blacklisted") {
+                 db.set(`blacklist_${targetblacklist.id}`, "Not") 
+                let embed1212 = new MessageEmbed()
+                .setDescription(`${targetblacklist} has been unblacklisted!`)
+                
+                message.channel.send(embed1212)
+              } else {
+                 db.set(`blacklist_${targetblacklist.id}`, "Not") 
+                let embed12121 = new MessageEmbed()
+                .setDescription(`Set up data for ${targetblacklist}!`)
+                
+                message.channel.send(embed12121)
+              }
+                break
       case 'say':
       case 'repeat':
         if (args.includes('@everyone'))return message.reply('I won\'t repeat a message with a here ping in it!')
