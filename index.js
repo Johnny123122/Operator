@@ -1,3 +1,4 @@
+const { RSA_NO_PADDING } = require('constants');
 const { Client, MessageEmbed, Message } = require('discord.js');
 const Statcord = require("statcord.js");
 const config = require('./config');
@@ -893,6 +894,16 @@ case 'pong':
             .setTimestamp();
             message.channel.send(embed1212)
             break
+   case 'devmessage':
+   if (!message.member.id != 700096978796937267) return message.reply('You can\'t use that command!')
+   let message112121212 = args.join(" ")
+   if (!message) return message.reply('C\'mon you\'re my dev you should know to put the input!')
+   const embed12122 = new MessageEmbed()
+   .setColor('BLUE')
+   .setTitle('Announcement By Operator\'s Developer')
+   .setDescription(message112121212)
+   .setFooter(`Invite the bot to your server, by using ops!invite!`, client.user.displayAvatarURL())
+   break
    case 'gayrate':
    case 'howgay':
     const guytorate = message.mentions.members.first();
