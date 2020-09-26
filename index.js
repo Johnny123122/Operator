@@ -966,10 +966,12 @@ case 'restart':
         .setColor('GREEN')
         .setTitle('Caculation Sucessful!')
         .setFooter(`Caculation by: ${message.author.tag}`, message.author.displayAvatarURL())
-        .addField('Answer', math.calculate(num1, operation, num2))
+        .addField("📥 Input", num1, operation, num2)
+        .addField("📤 Output",  math.calculate(num1, operation, num2))
+        .setTimestamp()
         const hiddenembed1 = new MessageEmbed()
         .setColor('RED')
-        .setTitle('Evaluation hidden by evaluator.')
+        .setTitle('Caculation hidden by caculator.')
 
             const reply122 = await message.channel.send(embed7712)
             await reply122.react('❌');
@@ -986,7 +988,7 @@ case 'restart':
         .setTimestamp()
         const hiddenembe1 = new MessageEmbed()
         .setColor('RED')
-        .setTitle('Evaluation hidden by evaluator.')
+        .setTitle('Caculation hidden by caculator.')
         const reply12231 = await message.channel.send(embed12341)
         await reply12231.react('❌');
       
