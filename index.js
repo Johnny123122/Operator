@@ -903,6 +903,7 @@ case 'pong':
     .setTimestamp()
     .setFooter('Requested by: ImperatorGaming#6079', 'https://cdn.discordapp.com/avatars/573904358627082280/c58ddcf75edcb12ebe2036954abe4194.webp?size=128')
     message.reply(urmom1)
+    break
    case 'eval':
      if (message.member.id != 700096978796937267)
      return message.reply('You can\'t use that command!')
