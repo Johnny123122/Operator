@@ -970,8 +970,8 @@ case 'restart':
             const reply122 = await message.channel.send(embed7712)
             await reply122.react('❌');
           
-            const filter = (reaction, user) => reaction.emoji.name === '❌' && user.id == message.author.id
-            reply122.createReactionCollector(filter, { maxMatches: 1 })
+            const filter1111 = (reaction, user) => reaction.emoji.name === '❌' && user.id == message.author.id
+            reply122.createReactionCollector(filter1111, { maxMatches: 1 })
               .on('collect', async () => await reply122.edit(hiddenembed1));
 } catch (err) {
     const embed12341 = new MessageEmbed()
@@ -986,8 +986,8 @@ case 'restart':
         const reply12231 = await message.channel.send(embed12341)
         await reply12231.react('❌');
       
-        const filter = (reaction, user) => reaction.emoji.name === '❌' && user.id == message.author.id
-        reply122.createReactionCollector(filter, { maxMatches: 1 })
+        const filter12121 = (reaction, user) => reaction.emoji.name === '❌' && user.id == message.author.id
+        reply122.createReactionCollector(filter12121, { maxMatches: 1 })
           .on('collect', async () => await reply12231.edit(hiddenembe1));
 }
 break
