@@ -898,10 +898,10 @@ case 'pong':
     const guytorate = message.mentions.user.first()
     if (!guytorate)
     return message.channel.send('You never mentioned who I need to gayrate!')
+    min = Math. ceil(0);
+    max = Math. floor(100);
     function getRandomIntInclusive(min, max) {
-      min = Math. ceil(0);
-      max = Math. floor(100);
-      return Math. floor(Math. random() * (max - min + 1)) + min; 
+      Math. floor(Math. random() * (max - min + 1)) + min
     }
     const urmom1 = new MessageEmbed()
     .setColor('RANDOM')
