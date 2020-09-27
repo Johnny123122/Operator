@@ -859,12 +859,7 @@ case '8ball':
        roblox.getPlayerInfo(parseInt(id)).then(function(info) 
 
        {
-         // dates.. um. go try get a pear or a grape instead.
-         let date = new Date(info.joinDate)
-         let dateInfo = client.extractDate(date)
-         
-         // create new embed and establish some settings for it, tasty.
-         let embed676767 = new MessageEmbed()
+          let embed676767 = new MessageEmbed()
          .setTitle(`${username}'s Profile`)
          .setColor('RANDOM')
          .setThumbnail(`https://www.roblox.com/bust-thumbnail/image?userId=${id}&width=420&height=420&format=png`)
