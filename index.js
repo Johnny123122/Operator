@@ -8,7 +8,7 @@ let client = new Client({
   presence: {
     status: 'dnd',
     activity: {
-      name: `Working on new help system, too many commands for the old system to function.`,
+      name: `${config.prefix}help || New help system`,
       type: 'WATCHING'
     }
   }
