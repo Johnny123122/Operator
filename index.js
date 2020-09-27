@@ -116,7 +116,7 @@ if (prefix12 === null) prefix12 = 'ops!';
           if (!message.member.hasPermission("KICK_MEMBERS")) //Checks if user has permission to run the command.
        return message.channel.send("You are not allowed to run that command.");
    
-     let member12 = message.mentions.members.first(); //We specify the member we wish to kick.
+     let member12 = message.mentions.members.first() || message.guild.members.cache.get(args[0]); //We specify the member we wish to kick.
      if (!member12) return message.channel.send("Please specify a valid user."); //If we don't specify a user, nor enter a valid user, it will will respond, letting us know to type a valid user.
      if (!member12.kickable) return message.channel.send("Unable to kick specified user.");
    
@@ -1081,7 +1081,7 @@ case 'restart':
         return message.reply(`**I do not have permission to ban anyone`)
       }
       
-      const target = message.mentions.members.first();
+      const target = message.mentions.members.first() || client.guilds.cache.get(args[0]);
       
       if(!target) {
         return message.reply(`Please mention the person who you want to ban.`)
