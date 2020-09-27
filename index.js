@@ -112,41 +112,40 @@ if (prefix12 === null) prefix12 = 'ops!';
         else
           message.reply('You did not send a message to repeat, cancelling command.')
         break;
-      case 'kick':
-       if (!message.member.hasPermission("KICK_MEMBERS")) //Checks if user has permission to run the command.
-    return message.channel.send("You are not allowed to run that command.");
-
-  let member12 = message.mentions.members.first(); //We specify the member we wish to kick.
-  if (!member12) return message.channel.send("Please specify a valid user."); //If we don't specify a user, nor enter a valid user, it will will respond, letting us know to type a valid user.
-  if (!member12.kickable) //This checks if the user can be kicked, if their permissions don't enable them to get kicked, such as Admins, it will let you know it can't kick them.
-  if (member12.hasPermission('ADMINISTRATOR'))
-  return message.reply('That user is a mod/admin I can\'t do that!')
-  if (member12.id == message.author.id) return message.reply('You can\'t kick yourself!')
-    return message.channel.send("Unable to kick specified user.");
-
-  let reason = args.slice(1).join(" "); //Here we specify the reason they got kicked, it is optional, but it helps for mod logs.
-  if (!reason) reason = "No reason provided."; //If they don't specify a reason, we automatically set the reason as "No reason provided."
-  const yesorno = new MessageEmbed()
-  .setColor('BLUE')
-  .setTitle(`Are you sure you'd like to kick ${member12.user.tag}?`)
-  .setDescription(`React with ✅ or ❌ within the next 15 seconds confirming you\'d like to kick <@${member12.id}> !`)
-  .setFooter(`Caused by: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
-  const kickyes = new MessageEmbed()
-  .setTitle(`${member12.user.tag} has been sucessfully kicked!`)
-  .setColor('GREEN')
-  const kickno = new MessageEmbed()
-  .setColor('RED')
-  .setTitle(`Cancelled the kick with target ${member12.user.tag}`)
-  const reply123 = await message.reply(yesorno)
-  await reply123.react('✅')
-  await reply123.react('❌')
-  const filter1 = (reaction, user) => reaction.emoji.name === '✅' && user.id == message.author.id
-  reply123.createReactionCollector(filter1, { maxMatches: 1, time: 15000, error: 'You failed to react in-time!'})
-    .on('collect', async () => await reply123.edit(kickyes) && member12.kick(reason) && reply123.reactions.removeAll());
-    const filter12 = (reaction, user) => reaction.emoji.name === '❌' && user.id == message.author.id
-    reply123.createReactionCollector(filter12, { maxMatches: 1, time: 15000, error: 'You failed to react in-time!' })
-      .on('collect', async () => await reply123.edit(kickno) && reply123.reactions.removeAll());
-  break
+        case 'kick':
+          if (!message.member.hasPermission("KICK_MEMBERS")) //Checks if user has permission to run the command.
+       return message.channel.send("You are not allowed to run that command.");
+   
+     let member12 = message.mentions.members.first(); //We specify the member we wish to kick.
+     if (!member12) return message.channel.send("Please specify a valid user."); //If we don't specify a user, nor enter a valid user, it will will respond, letting us know to type a valid user.
+     if (!member12.kickable) return message.channel.send("Unable to kick specified user.");
+   
+     if (member12.hasPermission('ADMINISTRATOR'))
+     return message.reply('That user is a mod/admin I can\'t do that!')
+     if (member12.id == message.author.id) return message.reply('You can\'t kick yourself!')
+     let reason121212121 = args.slice(1).join(" "); //Here we specify the reason they got kicked, it is optional, but it helps for mod logs.
+     if (!reason121212121) reason121212121 = "No reason provided."; //If they don't specify a reason, we automatically set the reason as "No reason provided."
+     const yesorno = new MessageEmbed()
+     .setColor('BLUE')
+     .setTitle(`Are you sure you'd like to kick ${member12.user.tag}?`)
+     .setDescription(`React with ✅ or ❌ within the next 15 seconds confirming you\'d like to kick <@${member12.id}> !`)
+     .setFooter(`Caused by: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
+     const kickyes = new MessageEmbed()
+     .setTitle(`${member12.user.tag} has been sucessfully kicked!`)
+     .setColor('GREEN')
+     const kickno = new MessageEmbed()
+     .setColor('RED')
+     .setTitle(`Cancelled the kick with target ${member12.user.tag}`)
+     const reply123 = await message.reply(yesorno)
+     await reply123.react('✅')
+     await reply123.react('❌')
+     const filter1 = (reaction, user) => reaction.emoji.name === '✅' && user.id == message.author.id
+     reply123.createReactionCollector(filter1, { maxMatches: 1, time: 15000, error: 'You failed to react in-time!'})
+       .on('collect', async () => await reply123.edit(kickyes) && member12.kick(reason121212121) && reply123.reactions.removeAll());
+       const filter12 = (reaction, user) => reaction.emoji.name === '❌' && user.id == message.author.id
+       reply123.createReactionCollector(filter12, { maxMatches: 1, time: 15000, error: 'You failed to react in-time!' })
+         .on('collect', async () => await reply123.edit(kickno) && reply123.reactions.removeAll());
+     break
          case 'meme':
         const randomPuppy = require('random-puppy');
         const subReddits = ["me_irl", "dankmeme"]
@@ -1124,14 +1123,40 @@ case 'restart':
   client.destroy()
   client.login(process.env.token)
     break
-      case 'ban':
-      const urmom = new MessageEmbed()
-      .setTitle(`Hello ${message.author.tag}!`)
-      .setColor('RED')
-      .setDescription('It has came to my attention, you\'re trying to use the ban command! We\'re tidying some things up on our end within this command and truly sorry for the inconvience. Please stay calm, info will be released within my support server. Check ops!invite for the link.')
-      .setFooter('Sincerely, Excel#4599 - Operator\'s developer', `https://cdn.discordapp.com/avatars/700096978796937267/a_e11507e4f84c19beedcafb5395caab44.gif?size=128`)
-      message.reply(urmom)
-      break
+    case 'ban':
+      if(!message.member.hasPermission("BAN_MEMBERS")) {
+        return message.channel.send(`**${message.author.username}**, You do not have perms to ban someone`)
+      }
+      
+      if(!message.guild.me.hasPermission("BAN_MEMBERS")) {
+        return message.channel.send(`**${message.author.username}**, I do not have perms to ban someone`)
+      }
+      
+      const target = message.mentions.members.first();
+      
+      if(!target) {
+        return message.channel.send(`**${message.author.username}**, Please mention the person who you want to ban.`)
+      }
+      
+      if(target.id === message.author.id) {
+        return message.channel.send(`**${message.author.username}**, You can not ban yourself!`)
+      }
+      
+     
+      
+     if(!args[1]) {
+       return message.channel.send(`**${message.author.username}**, Please Give Reason To ban Member`)
+     }
+      
+      let embed1212121212121212 = new MessageEmbed()
+      .setTitle(`Sucessfully banned ${target.user.tag}`)
+      .setColor("GREEN")
+      let reason121212121121 = args.slice(1).join(" "); //Here we specify the reason they got kicked, it is optional, but it helps for mod logs.
+    if (!reason121212121121) reason121212121121 = "No reason provided."; //If they don't specify a reason, we automatically set the reason as "No reason provided."
+      
+      message.channel.send(embed1212121212121212)
+  message.guild.members.ban(target, { reason: reason121212121121 }).catch(err => console.log(err));    
+  break
       case 'cal':
         const math = require('discord-math');
         let num1 = Number(args[0]);
