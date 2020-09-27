@@ -195,7 +195,7 @@ await message.channel.send(embed3).then(sentEmbed => {
   case 'serverinfo':
   const { guild } = message
     const { name, region, memberCount, owner, afkTimeout } = guild
-    const icon = guild.iconURL()
+    const icon = guild.iconURL({ dynamic: true})
     const moment125 = require('moment')
     const members = message.guild.members.cache;
     const filterLevels = {
