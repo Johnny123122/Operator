@@ -1149,12 +1149,8 @@ break
           .setThumbnail(client.user.displayAvatarURL());
         if (!args[0])
           embed
-            .setDescription(`Here's all my categories. Use \`ops!help <category>\` for a list of commands within that category. Questions, may be redirected to our support server:\n https://discord.gg/fSTUtRF`)
-            .addField('📷Moderation Commands📷', 'Shows all of the commands within Operator listed under the moderation category.')
-            .addField('😉Fun Commands😉', 'Shows all of the commands within Operator listed under the fun category. (Super Fun)')
-            .addField('🦜Animal Commands🦜', 'Shows all of the commands within Operator listed under the animal category. (Super Cute)')
-            .addField('🌊Extra Commands🌊', 'Shows all of the commands within Operator that are extra. (Super Uniqe)')
-            .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
+          .setDescription(`Here's all my categories. Use \`ops!help <category>\` for a list of commands within that category. Questions, may be redirected to our support server:\n https://discord.gg/fSTUtRF\n\n**📷Moderation Commands📷**\nShows all of the commands within Operator listed under the moderation category.\n\n**😉Fun Commands😉**\nShows all of the commands within Operator listed under the fun category. (Super Fun)\n\n**🦜Animal Commands🦜**\nShows all of the commands within Operator listed under the animal category (Super Cute)\n\n**🌊Extra Commands🌊**\nShows all of the commands within Operator that are extra. (Super Uniqe)`)
+          .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
         else {
           if (Object.keys(commands).includes(args[0].toLowerCase()) || Object.keys(commands).map(c => commands[c].aliases || []).flat().includes(args[0].toLowerCase())) {
             let command = Object.keys(commands).includes(args[0].toLowerCase())? args[0].toLowerCase() : Object.keys(commands).find(c => commands[c].aliases && commands[c].aliases.includes(args[0].toLowerCase()));
