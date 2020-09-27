@@ -1142,6 +1142,7 @@ case 'restart':
           .on('collect', async () => await reply12231.edit(hiddenembe1) && reply12231.reactions.removeAll());
 }
 break
+
 case 'help':
   const embed121 = new MessageEmbed()
 .setTitle(`**📷Moderation Commands📷**`)
@@ -1168,7 +1169,7 @@ let embed =  new MessageEmbed()
 .setDescription(`Here's all my categories. Use \`ops!help <category>\` for a list of commands within that category. Questions, may be redirected to our support server:\n https://discord.gg/fSTUtRF\n\n**📷Moderation Commands📷**\nShows all of the commands within Operator listed under the moderation category.\n\n**😉Fun Commands😉**\nShows all of the commands within Operator listed under the fun category. (Super Fun)\n\n**🌊Extra Commands🌊**\nShows all of the commands within Operator that are extra. (Super Uniqe)`)
 .addField(`Links`, `[Invite Me](https://discord.com/oauth2/authorize?client_id=755070612090650714&permissions=201714758&scope=bot) •	[Support Server](https://discord.gg/fSTUtRF) `).setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
 if (!args[0]) return message.channel.send(embed)
-        if (args[0].toLowerCase() == "fun")
+if (args[0].toLowerCase() == "fun")
 return message.channel.send(embed121212112121) 
 if (args[0].toLowerCase() == "moderation") 
 return message.channel.send(embed121);
@@ -1177,23 +1178,25 @@ return message.channel.send(embedextra);
 else {
 if (Object.keys(commands).includes(args[0].toLowerCase()) || Object.keys(commands).map(c => commands[c].aliases || []).flat().includes(args[0].toLowerCase())) {
 let command = Object.keys(commands).includes(args[0].toLowerCase())? args[0].toLowerCase() : Object.keys(commands).find(c => commands[c].aliases && commands[c].aliases.includes(args[0].toLowerCase()));
-embed
+const cmdembed = new MessageEmbed()
+.addField(`Links`, `[Invite Me](https://discord.com/oauth2/authorize?client_id=755070612090650714&permissions=201714758&scope=bot) •	[Support Server](https://discord.gg/fSTUtRF) `).setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
 .setTitle(`COMMAND - ${command}`)
 .setColor('GREEN')
 
 if (commands[command].aliases)
-embed.addField('Command aliases', `\`${commands[command].aliases.join('`, `')}\``);
-embed
+cmdembed.addField('Command aliases', `\`${commands[command].aliases.join('`, `')}\``);
+cmdembed
 .addField('DESCRIPTION', commands[command].description)
 .addField('FORMAT', `\`\`\`${config.prefix}${commands[command].format}\`\`\``);
 } else {
-embed
+cmdembed
 .setTitle('Perhaps you misspelled?')
 .setColor('RED')
-.setDescription('This command does not exist. Please use the help command without specifying any commands to list them all.');
+.setDescription('This command does not exist. Please use the help command without specifying any commands to list them all.')
+.addField(`Links`, `[Invite Me](https://discord.com/oauth2/authorize?client_id=755070612090650714&permissions=201714758&scope=bot) •	[Support Server](https://discord.gg/fSTUtRF) `).setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
 }
 }
-message.channel.send(embed);
+message.channel.send(cmdembed);
 break;
     }
     }
