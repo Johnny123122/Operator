@@ -841,37 +841,6 @@ case '8ball':
       message.channel.send(Embed11)
     }
    break
-   case 'roblox':
-    const roblox = require("noblox.js")
-    let username = args[0]
-     if (username) {
-   roblox.getIdFromUsername(username).then(id => {
-     
-     if (id) 
-
-     {
-       roblox.getPlayerInfo(parseInt(id)).then(function(info) 
-
-       {
-          let embed676767 = new MessageEmbed()
-         .setTitle(`${info.username}'s Profile`)
-         .setColor('RANDOM')
-         .setThumbnail(`https://www.roblox.com/bust-thumbnail/image?userId=${id}&width=420&height=420&format=png`)
-         .addField("Username", info.username || 'Unresolvable', true)
-         .addField("User ID", id || 'Unresolvable', true)
-         .addField("Description", info.blurb || 'Nothing', true)
-         .addField("Status", info.status || 'Nothing', true)
-         .addField("Account Age", `${info.age} days old` || 'Unresolvable')
-         .addField("User Link", `https://roblox.com/users/${id}/profile`)
-         .setFooter(`Requested by: ${message.author.tag}`,message.author.displayAvatarURL({ dynamic: true }))
-         message.channel.send(embed676767)
-       })
-     }
-   }).catch(function (err) {
-    message.channel.send("That user doesn't exist, perhaps you misspelled? Double check your spelling!") // catching error
-  });  
-} else { message.channel.send("Missing the user argument!") }
-break 
    case 'covid':
      const Discord = require('discord.js')
     const fetch = require('node-fetch');
