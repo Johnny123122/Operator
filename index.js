@@ -855,7 +855,7 @@ case '8ball':
 
        {
           let embed676767 = new MessageEmbed()
-         .setTitle(`${username}'s Profile`)
+         .setTitle(`${info.username}'s Profile`)
          .setColor('RANDOM')
          .setThumbnail(`https://www.roblox.com/bust-thumbnail/image?userId=${id}&width=420&height=420&format=png`)
          .addField("Username", info.username || 'Unresolvable', true)
