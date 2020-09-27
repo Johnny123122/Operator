@@ -1155,12 +1155,12 @@ const embed121212112121 = new MessageEmbed()
 .setColor('RANDOM')
 .setDescription('Here\'s a list of all of my commands listed under the extra category. (Super Uniqe)\n\n`poll` **Create a yes or no poll within the given channel**🌊\n`announce` **The bot announces the argument given**🌊\n`report` **Must have a channel called reports, report a user to server staff**🌊\n`emojis` **The bot will send all the emojis on the current guild**🌊\n`stats` **Check the bots servers,and users count along with user stats**🌊\n`dog` **Send a random dog photo**🌊\n`cat` **Send a random cat photo**🌊\n`bird` **Send a random bird photo**🌊\n`feedback` **Leave feedback on Operator for the developers**🌊')
 .setFooter(`Requested by: ${message.author.tag}, Use: ops!feedback to leave some feedback!`, message.author.displayAvatarURL({ dynamic: true}));
-let announcement = 'This help system is a work in progress, we recently outgrew our old system because there were too many commands. Please be paitent as we sort this new system out.\nSincerely, Excel#4599 - Operator\'s developer'
+let announcement = 'Want help on a specific command? Use `ops!help <command>` for info within the given command!'
 let embed =  new MessageEmbed()
 .setTitle('Help System')
 .setColor('RANDOM')
 .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
-.addField('Announcement', announcement)
+.addField('Tip', announcement)
 .setThumbnail(client.user.displayAvatarURL())
 .setDescription(`Here's all my categories. Use \`ops!help <category>\` for a list of commands within that category. Questions, may be redirected to our support server:\n https://discord.gg/fSTUtRF\n\n**📷Moderation Commands📷**\nShows all of the commands within Operator listed under the moderation category.\n\n**😉Fun Commands😉**\nShows all of the commands within Operator listed under the fun category. (Super Fun)\n\n**🌊Extra Commands🌊**\nShows all of the commands within Operator that are extra. (Super Uniqe)`)
 .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
