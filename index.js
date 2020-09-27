@@ -864,7 +864,7 @@ case '8ball':
          .addField("Status", info.status || 'Nothing', true)
          .addField("Account Age", `${info.age} days old` || 'Unresolvable')
          .addField("User Link", `https://roblox.com/users/${id}/profile`)
-         .setFooter(`Requested by: ${message.author.tag}`,message.author.displayAvatarURL( { dynamic: true } ))
+         .setFooter(`Requested by: ${message.author.tag}`,message.author.displayAvatarURL({ dynamic: true }))
          message.channel.send(embed676767)
        })
      }
