@@ -963,25 +963,6 @@ case 'pong':
   .addField('API Latency', Math.round(client.ws.ping) + 'ms')
   await msg12121.edit(embed2000)
   break
-  case 'giverole':
-    if (!message.member.hasPermission('ADMINISTRATOR'))
-    return;
-    const targetUser1221 = message.mentions.members.first()
-    if (!targetUser1221) {
-      return message.reply('Please specify someone to give a role to.')
-    }
-    const roleName = message.content.split(`${prefix12}giverole ${targetUser1221} `).join("");
-      const role565 = message.guild.roles.cache.find(role => role.name === roleName);
-   
-    targetUser1221.roles.add(role565)
-    let role1 = role565.id
-    let Embeddqwqw = new MessageEmbed()
-    .setDescription(`Added Role: <@&${role1}> to ${targetUser1221.user.tag}!`)
-    .setColor('GREEN')
-    .setFooter(`Given by: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
-    message.channel.send(Embeddqwqw)
-    break
-  
     case 'stats':
       const { version: djsversion } = require('discord.js')
       const { version } = require('./package.json')
