@@ -1219,6 +1219,7 @@ embed
 if (commands[command].aliases)
 embed.addField('Command aliases', `\`${commands[command].aliases.join('`, `')}\``);
 embed
+.setDescription(`Below is information on ${command}!`)
 .addField('DESCRIPTION', commands[command].description)
 .addField('FORMAT', `\`\`\`${config.prefix}${commands[command].format}\`\`\``);
 } else {
