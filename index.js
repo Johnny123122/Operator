@@ -1142,6 +1142,39 @@ case 'restart':
           .on('collect', async () => await reply12231.edit(hiddenembe1) && reply12231.reactions.removeAll());
 }
 break
+case 'testcmd':
+  if (message.author.id != 700096978796937267) return;
+  const Canvas = require('canvas')
+	const canvas = Canvas.createCanvas(700, 250);
+	const ctx = canvas.getContext('2d');
+
+	const background = await Canvas.loadImage('https://i.pinimg.com/originals/b8/a8/56/b8a856f2b60df7f004b31a74ffcf1c71.jpg');
+	ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+
+	ctx.strokeStyle = '#74037b';
+	ctx.strokeRect(0, 0, canvas.width, canvas.height);
+
+	// Slightly smaller text placed above the member's display name
+	ctx.font = '28px "sans-serif"';
+	ctx.fillStyle = '#ffffff';
+	ctx.fillText('Welcome to the server,', canvas.width / 2.5, canvas.height / 3.5);
+
+	// Add an exclamation point here and below
+	ctx.fillStyle = '#ffffff';
+	ctx.fillText(`${message.author.displayName}!`, canvas.width / 2.5, canvas.height / 1.8);
+
+	ctx.beginPath();
+	ctx.arc(125, 125, 100, 0, Math.PI * 2, true);
+	ctx.closePath();
+	ctx.clip();
+
+	const avatar = await Canvas.loadImage(message.author.displayAvatarURL({ format: 'jpg' }));
+	ctx.drawImage(avatar, 25, 25, 200, 200);
+
+	const attachment = new MessageAttachment(canvas.toBuffer(), 'welcome-image.png');
+
+	message.channel.send(attachment);
+break
 case 'help':
   const embed121 = new MessageEmbed()
 .setTitle(`**📷Moderation Commands📷**`)
