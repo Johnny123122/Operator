@@ -848,14 +848,9 @@ case '8ball':
      if (username) {
    roblox.getIdFromUsername(username).then(id => {
      
-     // if an identity is found under the username then continue collecting the rest of the data
-     // sadly this means you can't search for banned users. f in the chat. maybe try using older apis
-     // yes, i just did c# styled bracketing, do not mind me trying to bless your eyes
-     
      if (id) 
 
      {
-       // next conditio
        roblox.getPlayerInfo(parseInt(id)).then(function(info) 
 
        {
