@@ -600,7 +600,7 @@ let questions = [
   case 'feedback':
     let feedback_message = message.content.split(`${prefix12}feedback `).join("");
 if (message.member.id == 656978020933959727) return message.reply(`You've been blacklisted from using this command by official bot developers!`)
-if (!feedback_message) return message.reply('You didn\'t provide the feedback you want to send!')
+if (!feedback_message) return message.reply('You didn\'t provide the feedback you want to send!');
 message.reply('Thanks for your feedback, my developers will review it when they get a chance!');
 
 let embed7771 = new MessageEmbed()
