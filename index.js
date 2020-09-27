@@ -1140,7 +1140,7 @@ case 'restart':
 }
 break
       case 'help':
-        let announcement = 'The ban command is currently, on maitainance mode. Were trying to tidy things up on our ends, please stay calm!\nSincerely, Excel#4599 - Operator\'s developer'
+        let announcement = 'This help system is a work in progress, we recently outgrew our old system because there were too many commands. Please be paitent as we sort this new system out.'
         let embed =  new MessageEmbed()
           .setTitle('Help System')
           .setColor('RANDOM')
