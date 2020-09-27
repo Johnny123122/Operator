@@ -1142,14 +1142,19 @@ break
       case 'help':
         let announcement = 'The ban command is currently, on maitainance mode. Were trying to tidy things up on our ends, please stay calm!\nSincerely, Excel#4599 - Operator\'s developer'
         let embed =  new MessageEmbed()
-          .setTitle('Here\'s a list of my commands!')
+          .setTitle('Help System')
           .setColor('RANDOM')
           .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
           .addField('Announcement', announcement)
           .setThumbnail(client.user.displayAvatarURL());
         if (!args[0])
           embed
-            .setDescription(Object.keys(commands).map(command => `\`${command.padEnd(Object.keys(commands).reduce((a, b) => b.length > a.length ? b : a, '').length)}\` :: ${commands[command].description}`).join('\n'));
+            .setDescription(`Here's all my categories. Use \`ops!help <category>\` for a list of commands within that category. Questions, may be redirected to our support server:\n https://discord.gg/fSTUtRF`)
+            .addField('📷Moderation Commands📷', 'Shows all of the commands within Operator listed under the moderation category.')
+            .addField('😉Fun Commands😉', 'Shows all of the commands within Operator listed under the fun category. (Super Fun)')
+            .addField('🦜Animal Commands🦜', 'Shows all of the commands within Operator listed under the animal category. (Super Cute)')
+            .addField('🌊Extra Commands🌊', 'Shows all of the commands within Operator that are extra. (Super Uniqe)')
+            .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
         else {
           if (Object.keys(commands).includes(args[0].toLowerCase()) || Object.keys(commands).map(c => commands[c].aliases || []).flat().includes(args[0].toLowerCase())) {
             let command = Object.keys(commands).includes(args[0].toLowerCase())? args[0].toLowerCase() : Object.keys(commands).find(c => commands[c].aliases && commands[c].aliases.includes(args[0].toLowerCase()));
