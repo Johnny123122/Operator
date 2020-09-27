@@ -1179,11 +1179,37 @@ case 'restart':
           .on('collect', async () => await reply12231.edit(hiddenembe1) && reply12231.reactions.removeAll());
 }
 break
+case 'giverole':
+        if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(`You do not have MANAGE_ROLES permission`).then(m => m.delete({ timeout: 5000 }));
+
+        if (!args[0] || !args[1]) return message.channel.send("Incorrect usage, It's `<username || user id> <role name || id>").then(m => m.delete({ timeout: 5000 }))
+
+        try {
+
+             const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
+             const roleName = message.guild.roles.cache.find(r => (r.name === args[1].toString()) || (r.id === args[1].toString().replace(/[^\w\s]/gi, '')));
+
+             const alreadyHasRole = member._roles.includes(roleName.id);
+
+             if (alreadyHasRole) return message.channel.send('User already has that role').then(m => m.delete({ timeout: 5000 }));
+
+             const embed12121 = new MessageEmbed()
+                 .setTitle(`Role added!`)
+                 .setDescription(`${message.author} has  given the role ${roleName} to ${member.user}`)
+                 .setColor('RANDOM')
+                 .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
+                 .setFooter(`Given By: ${message.author.tag}`, message.author.displayAvatarURL({dynamic: true}))
+
+            return member.roles.add(roleName).then(() => message.channel.send(embed12121));
+        } catch (e) {
+            return message.channel.send('The role provided doens\'t exist!').then(m => m.delete({ timeout: 5000 })).then(() => console.log(e))
+        }
+        break
 case 'help':
   const embed121 = new MessageEmbed()
 .setTitle(`**📷Moderation Commands📷**`)
 .setColor('RANDOM')
-.setDescription('Here\'s a list of all of my commands listed under the moderation category.\n\n`ban` **Bans the given user, they may not join back unless they\'re unbanned. **📷\n`unban` **Removes the ban for the user ID given**📷\n`kick` **Kicks the given user, they may join back if granted a new invite.**📷\n`purge` **Bulk deletes the given number of messages.**📷\n`mute` **Mutes the given user indefintely.**📷\n`unmute` **Unmutes the given user and removes their muted role.**📷\n`warn` **Warns the given user, lets them know they did something wrong**📷\n`role` **Creates/Deletes a role depending on the arguments given**📷\n`setprefix` **Sets the bots prefix for the current guild.**📷\n`userinfo` **Check information on the given user, may be used to find suspicous accounts.**📷\n`slowmode` **Set the slowmode for the current channel**📷')
+.setDescription('Here\'s a list of all of my commands listed under the moderation category.\n\n`ban` **Bans the given user, they may not join back unless they\'re unbanned. **📷\n`unban` **Removes the ban for the user ID given**📷\n`kick` **Kicks the given user, they may join back if granted a new invite.**📷\n`giverole` **Adds the given role id/name to the given user.**📷\n`purge` **Bulk deletes the given number of messages.**📷\n`mute` **Mutes the given user indefintely.**📷\n`unmute` **Unmutes the given user and removes their muted role.**📷\n`warn` **Warns the given user, lets them know they did something wrong**📷\n`role` **Creates/Deletes a role depending on the arguments given**📷\n`setprefix` **Sets the bots prefix for the current guild.**📷\n`userinfo` **Check information on the given user, may be used to find suspicous accounts.**📷\n`slowmode` **Set the slowmode for the current channel**📷')
 .setFooter(`Requested by: ${message.author.tag}, Use: ops!feedback to leave some feedback!`, message.author.displayAvatarURL({ dynamic: true}));
 const embed121212112121 = new MessageEmbed()
 .setTitle(`**😉Fun Commands😉**`)
