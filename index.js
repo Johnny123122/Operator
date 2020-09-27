@@ -844,6 +844,7 @@ case '8ball':
    break
    case 'roblox':
     const roblox = require("noblox.js")
+    let username = args[0]
      if (username) {
    roblox.getIdFromUsername(username).then(id => {
      
