@@ -362,10 +362,25 @@ const embed8 = new MessageEmbed()
     .addField("Bot", `${user6.bot  ? user6.bot : 'No'}`, true)
     .addField("Joined The Server On", `${moment121.utc(member7.joinedAt).format("dddd, MMMM Do YYYY")}`, true)
     .addField("Account Created On", `${moment121.utc(user6.createdAt).format("dddd, MMMM Do YYYY")}`, true)
-        .addField("Roles:", member7.roles.cache.map(roles => `${roles}`).join(', '), true)
-
-    .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
+    .addField("Roles:", member7.roles.cache.map(roles => `${roles}`).join(', '), true)
+.setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
 message.channel.send(embed8);
+break
+case 'avatar':
+  let user612;
+  if (message.mentions.users.first()) {
+    user612 = message.mentions.users.first();
+  } else {
+      user612 = message.author;
+  }
+  const member71 = message.guild.member(user612);
+
+let useravatarembed = new MessageEmbed()
+.setTitle(`${member71.user.tag}'s avatar`)
+.setImage(client.users.cache.get(user612.id).displayAvatarURL({ dynamic: true }))
+.setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true}))
+.setColor(`RANDOM`)
+message.channel.send(useravatarembed)
 break
 case 'cat':
   const fetch121 = require('node-fetch');
@@ -1148,7 +1163,7 @@ case 'help':
 const embed121212112121 = new MessageEmbed()
 .setTitle(`**😉Fun Commands😉**`)
 .setColor('RANDOM')
-.setDescription('Here\'s a list of all of my commands listed under the fun category. (Super Fun)\n\n`ping` **Check the bots connectivity with discord\'s servers**😉\n`say` **The bot repeats the argument given**😉\n`cal` **Conduct a math caculation based on the given arguments**😉\n`meme` **Fetch a meme off redeit and post it within an embed model**😉\n`joke` **Sends a random joke**😉\n`trivia` **The bot asks you questions, and you have 15 seconds to answer**😉\n`8ball` **The bot will predict your future (high chance of being roasted)**😉\n`covid` **Check covid stats within the world or a given country**😉\n`serverinfo` **See information within the current guild**😉\n`userinfo` **Check information on the given user, may be used to find suspicous accounts.**😉\n`giveaway` **Create a giveaway that will pick a random winner after the timer**😉')
+.setDescription('Here\'s a list of all of my commands listed under the fun category. (Super Fun)\n\n`ping` **Check the bots connectivity with discord\'s servers**😉\n`say` **Get the avatar of the given user argument or yourself**😉\n`cal` **Conduct a math caculation based on the given arguments**😉\n`meme` **Fetch a meme off redeit and post it within an embed model**😉\n`joke` **Sends a random joke**😉\n`avatar` **Check the bots connectivity with discord\'s servers**😉\n`trivia` **The bot asks you questions, and you have 15 seconds to answer**😉\n`8ball` **The bot will predict your future (high chance of being roasted)**😉\n`covid` **Check covid stats within the world or a given country**😉\n`serverinfo` **See information within the current guild**😉\n`userinfo` **Check information on the given user, may be used to find suspicous accounts.**😉\n`giveaway` **Create a giveaway that will pick a random winner after the timer**😉')
 .setFooter(`Requested by: ${message.author.tag}, Use: ops!feedback to leave some feedback!`, message.author.displayAvatarURL({ dynamic: true}));
             const embedextra = new MessageEmbed()
 .setTitle(`**🌊Extra Commands🌊**`)
