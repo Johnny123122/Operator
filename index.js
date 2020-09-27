@@ -1033,18 +1033,6 @@ case 'pong':
     const guytorate = message.mentions.members.first();
     if (!guytorate)
     return message.channel.send('You never mentioned who I need to gayrate!')
-    const excel1212 = new MessageEmbed()
-    .setColor('RANDOM')
-    .setTitle(`Gay Rate Machine`)
-    .setDescription(`${guytorate.user} is 0% gay:gay_pride_flag:`)
-    .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
-    if (guytorate.id == 700096978796937267) return message.channel.send(excel1212);
-     const excel12 = new MessageEmbed()
-    .setColor('RANDOM')
-    .setTitle(`Gay Rate Machine`)
-    .setDescription(`${guytorate.user} is 100% gay:gay_pride_flag:`)
-    .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
-    if (message.member.id == 700096978796937267) return message.channel.send(excel12);
     const howgay = Math. floor(Math. random() * (100 - 1 + 1)) + 1
     const urmom1 = new MessageEmbed()
     .setColor('RANDOM')
@@ -1163,7 +1151,7 @@ case 'help':
 const embed121212112121 = new MessageEmbed()
 .setTitle(`**😉Fun Commands😉**`)
 .setColor('RANDOM')
-.setDescription('Here\'s a list of all of my commands listed under the fun category. (Super Fun)\n\n`ping` **Check the bots connectivity with discord\'s servers**😉\n`say` **Get the avatar of the given user argument or yourself**😉\n`cal` **Conduct a math caculation based on the given arguments**😉\n`meme` **Fetch a meme off redeit and post it within an embed model**😉\n`joke` **Sends a random joke**😉\n`avatar` **Check the bots connectivity with discord\'s servers**😉\n`trivia` **The bot asks you questions, and you have 15 seconds to answer**😉\n`8ball` **The bot will predict your future (high chance of being roasted)**😉\n`covid` **Check covid stats within the world or a given country**😉\n`serverinfo` **See information within the current guild**😉\n`userinfo` **Check information on the given user, may be used to find suspicous accounts.**😉\n`giveaway` **Create a giveaway that will pick a random winner after the timer**😉')
+.setDescription('Here\'s a list of all of my commands listed under the fun category. (Super Fun)\n\n`ping` **Check the bot connectivity with discord\'s servers**😉\n`say` **Get the avatar of the given user argument or yourself**😉\n`gayrate` **Check the percentage of a user being gay**😉\n`cal` **Conduct a math caculation based on the given arguments**😉\n`meme` **Fetch a meme off redeit and post it within an embed model**😉\n`joke` **Sends a random joke**😉\n`avatar` **Check the bots connectivity with discord\'s servers**😉\n`trivia` **The bot asks you questions, and you have 15 seconds to answer**😉\n`8ball` **The bot will predict your future (high chance of being roasted)**😉\n`covid` **Check covid stats within the world or a given country**😉\n`serverinfo` **See information within the current guild**😉\n`userinfo` **Check information on the given user, may be used to find suspicous accounts.**😉\n`giveaway` **Create a giveaway that will pick a random winner after the timer**😉')
 .setFooter(`Requested by: ${message.author.tag}, Use: ops!feedback to leave some feedback!`, message.author.displayAvatarURL({ dynamic: true}));
             const embedextra = new MessageEmbed()
 .setTitle(`**🌊Extra Commands🌊**`)
