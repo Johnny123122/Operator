@@ -1,5 +1,4 @@
-const { RSA_NO_PADDING } = require('constants');
-const { Client, MessageEmbed, Message, MessageAttachment } = require('discord.js');
+const { Client, MessageEmbed, Message } = require('discord.js');
 const Statcord = require("statcord.js");
 const config = require('./config');
 const commands = require('./help');
