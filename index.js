@@ -1172,7 +1172,7 @@ case 'giverole':
 
              const alreadyHasRole = member._roles.includes(roleName.id);
 
-             if (alreadyHasRole) return message.channel.send('User already has that role').then(m => m.delete({ timeout: 5000 }));
+             if (alreadyHasRole) return message.channel.send('User already has that role').then(m => m.delete({ timeout: 15000 }));
 
              const embed12121 = new MessageEmbed()
                  .setTitle(`Role added!`)
@@ -1183,7 +1183,7 @@ case 'giverole':
 
             return member.roles.add(roleName).then(() => message.channel.send(embed12121));
         } catch (e) {
-            return message.channel.send('The role provided doens\'t exist!').then(m => m.delete({ timeout: 5000 })).then(() => console.log(e))
+            return message.channel.send('The role provided doens\'t exist!').then(m => m.delete({ timeout: 15000 })).then(() => console.log(e))
         }
         break
 case 'help':
