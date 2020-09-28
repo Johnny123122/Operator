@@ -1186,11 +1186,33 @@ case 'giverole':
             return message.channel.send('The role provided doens\'t exist!').then(m => m.delete({ timeout: 15000 })).then(() => console.log(e))
         }
         break
+        case 'lock':
+          if (!message.author.hasPermission(`MANAGE_CHANNELS`)) return message.reply(`You can't use that command!`);
+          const channels = message.guild.channels.cache.get(message.channel.id)
+          const embedlock = new MessageEmbed()
+  .setDescription(`${message.author} sucessfully locked Channel: ${channels}!`)
+  .setColor(`RED`)
+                  channels.updateOverwrite(message.guild.roles.everyone, {
+                      SEND_MESSAGES: false
+                  })
+              return message.channel.send(embedlock);
+              break
+  case 'unlock':
+    if (!message.author.hasPermission(`MANAGE_CHANNELS`)) return message.reply(`You can't use that command!`);
+          const channels1 = message.guild.channels.cache.get(message.channel.id)
+          const embedunlock = new MessageEmbed()
+          .setDescription(`${message.author} sucessfully unlocked channel: ${channels1}!`)
+          .setColor(`GREEN`)
+                  channels1.updateOverwrite(message.guild.roles.everyone, {
+                      SEND_MESSAGES: true
+                  })
+              return message.channel.send(embedunlock);
+              break
 case 'help':
   const embed121 = new MessageEmbed()
 .setTitle(`**📷Moderation Commands📷**`)
 .setColor('RANDOM')
-.setDescription('Here\'s a list of all of my commands listed under the moderation category.\n\n`ban` **Bans the given user, they may not join back unless they\'re unbanned. **📷\n`unban` **Removes the ban for the user ID given**📷\n`kick` **Kicks the given user, they may join back if granted a new invite.**📷\n`giverole` **Adds the given role id/name to the given user.**📷\n`purge` **Bulk deletes the given number of messages.**📷\n`mute` **Mutes the given user indefintely.**📷\n`unmute` **Unmutes the given user and removes their muted role.**📷\n`warn` **Warns the given user, lets them know they did something wrong**📷\n`role` **Creates/Deletes a role depending on the arguments given**📷\n`setprefix` **Sets the bots prefix for the current guild.**📷\n`userinfo` **Check information on the given user, may be used to find suspicous accounts.**📷\n`slowmode` **Set the slowmode for the current channel**📷')
+.setDescription('Here\'s a list of all of my commands listed under the moderation category.\n\n`ban` **Bans the given user, they may not join back unless they\'re unbanned. **📷\n`unban` **Removes the ban for the user ID given**📷\n`lock` **Updates the permission: SEND_MESSAGES for @everyone in the current channel**📷\nunlock` **Updates the permission: SEND_MESSAGES for @everyone in the current channel**📷\n`kick` **Kicks the given user, they may join back if granted a new invite.**📷\n`giverole` **Adds the given role id/name to the given user.**📷\n`purge` **Bulk deletes the given number of messages.**📷\n`mute` **Mutes the given user indefintely.**📷\n`unmute` **Unmutes the given user and removes their muted role.**📷\n`warn` **Warns the given user, lets them know they did something wrong**📷\n`role` **Creates/Deletes a role depending on the arguments given**📷\n`setprefix` **Sets the bots prefix for the current guild.**📷\n`userinfo` **Check information on the given user, may be used to find suspicous accounts.**📷\n`slowmode` **Set the slowmode for the current channel**📷')
 .setFooter(`Requested by: ${message.author.tag}, Use: ops!feedback to leave some feedback!`, message.author.displayAvatarURL({ dynamic: true}));
 const embed121212112121 = new MessageEmbed()
 .setTitle(`**😉Fun Commands😉**`)
