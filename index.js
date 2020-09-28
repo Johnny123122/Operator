@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const fs = require("fs");
+const db = require('quick.db')
 const bot = new Discord.Client({
   fetchAllMembers: false, // Remove this if the bot is in large guilds.
   presence: {
