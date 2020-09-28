@@ -1186,7 +1186,6 @@ case 'giverole':
             return message.channel.send('The role provided doens\'t exist!').then(m => m.delete({ timeout: 15000 })).then(() => console.log(e))
         }
         break
-        case 'lock':
           case 'lock':
             if (!message.member.hasPermission("MANAGE_CHANNELS")) return message.reply(`You can't use that command!`);
             const channels = message.guild.channels.cache.get(message.channel.id)
@@ -1199,7 +1198,7 @@ case 'giverole':
                 return message.channel.send(embedlock);
                 break
     case 'unlock':
-      if (!message.author.member(`MANAGE_CHANNELS`)) return message.reply(`You can't use that command!`);
+      if (!message.member.hasPermission(`MANAGE_CHANNELS`)) return message.reply(`You can't use that command!`);
             const channels1 = message.guild.channels.cache.get(message.channel.id)
             const embedunlock = new MessageEmbed()
             .setDescription(`${message.author} sucessfully unlocked channel: ${channels1}!`)
