@@ -36,7 +36,7 @@ fs.readdir("./commands/", (err, files) => {
 });
 })
 bot.on("ready", async () => {
-console.log(`Logged in, ${bot.user.tsg} is online on ${bot.guilds.cache.size} servers!`);
+console.log(`Logged in, ${bot.user.tag} is online on ${bot.guilds.cache.size} servers!`);
 module.exports.client = bot
 
   bot.on("message", async message => {
@@ -49,7 +49,7 @@ module.exports.client = bot
     let args = message.content.slice(prefix12.length).trim().split(/ +/g);
     let cmd = args.shift().toLowerCase();
     let commandfile;
-    
+
     if (bot.commands.has(cmd)) {
       commandfile = bot.commands.get(cmd);
   } else if (bot.aliases.has(cmd)) {
