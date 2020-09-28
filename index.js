@@ -53,8 +53,6 @@ module.exports.client = bot
 
     if (bot.commands.has(cmd)) {
       commandfile = bot.commands.get(cmd)
-      let blacklist = await db.fetch(`blacklist_${message.author.id}`)
-      if (blacklist === "Blacklisted") return message.reply("You've been blacklisted from using me from my developer!");
   } else if (bot.aliases.has(cmd)) {
     commandfile = bot.commands.get(bot.aliases.get(cmd));
   }
@@ -63,7 +61,9 @@ module.exports.client = bot
 
           
   try {
-    commandfile.run(bot, message, args);
+      let blacklist = await db.fetch(`blacklist_${message.author.id}`)
+      if (blacklist === "Blacklisted") return message.reply("You've been blacklisted from using me from my developer!");
+    commandfile.run(bot, message, args)
   
   } catch (e) {
   }}
