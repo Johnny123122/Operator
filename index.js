@@ -49,6 +49,8 @@ module.exports.client = bot
     let args = message.content.slice(prefix12.length).trim().split(/ +/g);
     let cmd = args.shift().toLowerCase();
     let commandfile;
+    let blacklist = await db.fetch(`blacklist_${message.author.id}`)
+    if (blacklist === "Blacklisted") return message.reply("You've been blacklisted from using me from my developer!")
 
     if (bot.commands.has(cmd)) {
       commandfile = bot.commands.get(cmd);
