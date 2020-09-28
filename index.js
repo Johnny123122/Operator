@@ -1187,27 +1187,28 @@ case 'giverole':
         }
         break
         case 'lock':
-          if (!message.author.hasPermission(`MANAGE_CHANNELS`)) return message.reply(`You can't use that command!`);
-          const channels = message.guild.channels.cache.get(message.channel.id)
-          const embedlock = new MessageEmbed()
-  .setDescription(`${message.author} sucessfully locked Channel: ${channels}!`)
-  .setColor(`RED`)
-                  channels.updateOverwrite(message.guild.roles.everyone, {
-                      SEND_MESSAGES: false
-                  })
-              return message.channel.send(embedlock);
-              break
-  case 'unlock':
-    if (!message.author.hasPermission(`MANAGE_CHANNELS`)) return message.reply(`You can't use that command!`);
-          const channels1 = message.guild.channels.cache.get(message.channel.id)
-          const embedunlock = new MessageEmbed()
-          .setDescription(`${message.author} sucessfully unlocked channel: ${channels1}!`)
-          .setColor(`GREEN`)
-                  channels1.updateOverwrite(message.guild.roles.everyone, {
-                      SEND_MESSAGES: true
-                  })
-              return message.channel.send(embedunlock);
-              break
+          case 'lock':
+            if (!message.member.hasPermission("MANAGE_CHANNELS")) return message.reply(`You can't use that command!`);
+            const channels = message.guild.channels.cache.get(message.channel.id)
+            const embedlock = new MessageEmbed()
+    .setDescription(`${message.author} sucessfully locked Channel: ${channels}!`)
+    .setColor(`RED`)
+                    channels.updateOverwrite(message.guild.roles.everyone, {
+                        SEND_MESSAGES: false
+                    })
+                return message.channel.send(embedlock);
+                break
+    case 'unlock':
+      if (!message.author.member(`MANAGE_CHANNELS`)) return message.reply(`You can't use that command!`);
+            const channels1 = message.guild.channels.cache.get(message.channel.id)
+            const embedunlock = new MessageEmbed()
+            .setDescription(`${message.author} sucessfully unlocked channel: ${channels1}!`)
+            .setColor(`GREEN`)
+                    channels1.updateOverwrite(message.guild.roles.everyone, {
+                        SEND_MESSAGES: true
+                    })
+                return message.channel.send(embedunlock);
+                break
 case 'help':
   const embed121 = new MessageEmbed()
 .setTitle(`**📷Moderation Commands📷**`)
