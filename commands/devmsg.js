@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
           )
           .setFooter(
             `Invite the bot to your server, by using ops!invite!`,
-            client.user.displayAvatarURL()
+            bot.user.displayAvatarURL()
           );
         message.channel.send(embed12122);
 }

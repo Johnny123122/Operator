@@ -8,17 +8,15 @@ module.exports.run = async (bot, message, args) => {
         const index = require("../index")
         const embed1212 = new MessageEmbed()
           .setTitle("Operator | Stats")
-          .setThumbnail(
-            "https://cdn.discordapp.com/avatars/755070612090650714/8223cddad008ef6b28d15e1e5bc8cd0c.png?size=128"
-          )
+          .setThumbnail(bot.user.displayAvatarURL({dynamic: true}))
           .setColor("BLUE")
           .addField("General", [
-            `User: ${index.client.user.tag} (${index.client.user.id})`,
-            `Servers: ${index.client.guilds.cache.size.toLocaleString()} `,
-            `Users: ${index.client.guilds.cache
+            `User: ${bot.user.tag} (${bot.user.id})`,
+            `Servers: ${bot.guilds.cache.size.toLocaleString()} `,
+            `Users: ${bot.guilds.cache
               .reduce((a, b) => a + b.memberCount, 0)
               .toLocaleString()}`,
-            `Channels: ${index.client.channels.cache.size.toLocaleString()}`,
+            `Channels: ${bot.channels.cache.size.toLocaleString()}`,
             `Creation Date: 14th September 2020, 14:21`,
             `Node.js: ${process.version}`,
             `Version: v${version}`,

@@ -3,6 +3,7 @@ module.exports.run = async (bot, message, args) => {
         let embed23 = new MessageEmbed()
           .setColor("GREEN")
           .setTitle("Invite the bot to your server!")
+          .setThumbnail(bot.user.displayAvatarURL({dynamic: true}))
           .setURL(
             "https://discord.com/oauth2/authorize?client_id=755070612090650714&permissions=201714758&scope=bot"
           )
