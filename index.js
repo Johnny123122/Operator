@@ -43,7 +43,7 @@ if (prefix12 === null) prefix12 = 'ops!';
           const db = require("quick.db")
             
               if (message.author.id != 700096978796937267) return message.reply("You can't use that command!")
-              const targetblacklist = message.mentions.users.first()
+              const targetblacklist = message.mentions.users.first() || message.guild.members.get(args[0])
               if (!targetblacklist) return message.reply("You didn't mention anyone to blacklist!")
               
               let blacklist = await db.fetch(`blacklist_${targetblacklist.id}`)
