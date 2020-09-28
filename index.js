@@ -1,3 +1,4 @@
+const { error } = require('console');
 const { Client, MessageEmbed, Message } = require('discord.js');
 const Statcord = require("statcord.js");
 const config = require('./config');
@@ -635,7 +636,10 @@ break
       `**Animated [${Animated}]**:\n${EmojisAnimated}\n\n**Standard [${EmojiCount}]**:\n${Emojis}\n\n**Over all emojis [${OverallEmojis}]**`
     )
     .setColor(`RANDOM`);
-  message.channel.send(Embed22222222222);
+  message.channel.send(Embed22222222222)
+  if (error) {
+  message.channel.send(`This guild has to many emojis to list!`)
+}
 break
   case 'role':
     if (!message.member.permissions.has("ADMINISTRATOR"))
