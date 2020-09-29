@@ -1,5 +1,5 @@
 const { Discord, MessageEmbed } = require("discord.js");
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async (bot, message, args, prefix12) => {
        if (!message.member.permissions.has("ADMINISTRATOR"))
           return message.channel.send(`You can't use this command!`);
         if (!args[0])
