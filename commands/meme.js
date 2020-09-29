@@ -5,18 +5,19 @@ module.exports.run = async (bot, message, args) => {
         const random =
           subReddits[Math.floor(Math.random() * subReddits.length)];
         const img = await randomPuppy(random);
+        const message1 = await message.channel.send('Fetching a Meme...')
 
         const embed2 = new MessageEmbed()
           .setImage(img)
           .setTitle(`Here's your meme!`)
-          .setDescription("Memes provided by me_irl and dankmeme")
           .setColor("RANDOM")
           .setFooter(
             `Reuested by: ${message.author.tag}`,
             message.author.displayAvatarURL({ dynamic: true })
           );
 
-        message.channel.send(embed2);}
+        message1.edit({embed: embed2});
+      }
 
 module.exports.help = {
   name: "meme",
