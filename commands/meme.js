@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
             message.author.displayAvatarURL({ dynamic: true })
           );
 
-        message1.edit({embed: embed2});
+        message1.edit('Memes found!', {embed: embed2});
       }
 
 module.exports.help = {

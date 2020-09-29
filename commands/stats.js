@@ -13,9 +13,7 @@ module.exports.run = async (bot, message, args) => {
           .addField("General", [
             `User: ${bot.user.tag} (${bot.user.id})`,
             `Servers: ${bot.guilds.cache.size.toLocaleString()} `,
-            `Users: ${bot.guilds.cache
-              .reduce((a, b) => a + b.memberCount, 0)
-              .toLocaleString()}`,
+            `Users: ${bot.users.cache.size.toLocaleString()}`,
             `Channels: ${bot.channels.cache.size.toLocaleString()}`,
             `Creation Date: 14th September 2020, 14:21`,
             `Node.js: ${process.version}`,
