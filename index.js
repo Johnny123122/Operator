@@ -55,6 +55,7 @@ setInterval(
     let args = message.content.slice(prefix12.length).trim().split(/ +/g);
     let cmd = args.shift().toLowerCase();
     let commandfile;
+    module.exports.prefix = prefix12
 
     if (bot.commands.has(cmd)) {
       commandfile = bot.commands.get(cmd)

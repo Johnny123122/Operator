@@ -1,5 +1,6 @@
 const { Discord, MessageEmbed } = require("discord.js");
-module.exports.run = async (bot, message, args, prefix12) => {
+const index = require('../index')
+module.exports.run = async (bot, message, args) => {
        if (!message.member.permissions.has("ADMINISTRATOR"))
           return message.channel.send(`You can't use this command!`);
         if (!args[0])
@@ -7,7 +8,7 @@ module.exports.run = async (bot, message, args, prefix12) => {
             "You didn't mention if you want to create or delete a role!"
           );
         if (args[0].toLowerCase() == "create") {
-          let rName = message.content.split(`${prefix12}role create `).join("");
+          let rName = message.content.split(`${index.prefix}role create `).join("");
           let rColor;
           args.forEach(arg => {
             if (arg.startsWith("#")) {
