@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
         let useravatarembed = new MessageEmbed()
           .setTitle(`${member71.user.tag}'s avatar`)
           .setImage(
-            client.users.cache
+            bot.users.cache
               .get(user612.id)
               .displayAvatarURL({ dynamic: true })
           )
