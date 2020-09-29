@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
         const embed8 = new MessageEmbed()
           .setColor("RANDOM")
           .setThumbnail(
-            client.users.cache.get(user6.id).displayAvatarURL({ dynamic: true })
+            bot.users.cache.get(user6.id).displayAvatarURL({ dynamic: true })
           )
           .addField(`${user6.tag}`, `${user6}`, true)
           .addField("ID:", `${user6.id}`, true)
