@@ -8,9 +8,7 @@ module.exports.run = async (bot, message, args) => {
             `You did not specify your channel to send the announcement too!`
           );
         console.log(rChannel);
-        let MSG = message.content
-          .split(`${prefix12}announce ${rChannel} `)
-          .join(" ");
+        let MSG = args.join(`${rChannel} `)        
         if (!MSG)
           return message.channel.send(
             `You did not specify your message to send!`

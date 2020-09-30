@@ -1,6 +1,6 @@
 const { Discord, MessageEmbed } = require("discord.js");
 module.exports.run = async (bot, message, args) => {
-        let question1 = args.slice(" ")
+        let question1 = args.join(" ")
         if (!question1)
           return message.channel.send(`You did not specify your question!`);
         else {
