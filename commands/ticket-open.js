@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
       return channel.name === 'Support Tickets' && channel.type == "category"
     })
 
-    const newChannel = await guild.channels.create('Temp', {
+    const newChannel = await guild.channels.create(`ticket-${message.author.id}`, {
       parent: category, 
       permissionOverwrites: [
         {

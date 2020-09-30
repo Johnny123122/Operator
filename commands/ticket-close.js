@@ -6,6 +6,9 @@ module.exports.run = async (bot, message, args) => {
     const memberId = member.id
     let UserHasTicket = db.fetch(`ticket_${memberId}_${guildId}`);
     if (UserHasTicket === message.channel.id) return db.delete(`ticket_${memberId}_${guildId}`) && message.channel.send('This channel will be deleted in 1 second!') && message.channel.delete()
+    const notticket = new MessageEmbed()
+    .setDescription('This isn\'t a ticket!')
+    message.channel.send(`<@!${message.author.id}>`, {embed: notticket})
 }
 
 module.exports.help = {
