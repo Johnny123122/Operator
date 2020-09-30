@@ -4,7 +4,7 @@ module.exports.run = async (bot, message, args) => {
       let subject = args.join(" ")
     if (!subject) subject = 'No subject provided.'
       const supportembed = new MessageEmbed()
-    .setTitle('Hello!, ' + message.author.tag)
+    .setTitle('Hello, ' + message.author.tag + '!')
     .setDescription('Thank you for contacting **__' + message.guild.name + '__**\'s Support Team!\n\nI advise you right down your full reasoning to opening this ticket as it will make it easier for the operator who assists you.')
     .addField('Subject', subject)
       const { guild, member } = message

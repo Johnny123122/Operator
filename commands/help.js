@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
           .setTitle(`**🌊Extra Commands🌊**`)
           .setColor("RANDOM")
           .setDescription(
-            "Here's a list of all of my commands listed under the extra category. (Super Uniqe)\n\n`poll` **Create a yes or no poll within the given channel**🌊\n`announce` **The bot announces the argument given**🌊\n`report` **Must have a channel called reports, report a user to server staff**🌊\n`emojis` **The bot will send all the emojis on the current guild**🌊\n`stats` **Check the bots servers,and users count along with user stats**🌊\n`dog` **Send a random dog photo**🌊\n`cat` **Send a random cat photo**🌊\n`bird` **Send a random bird photo**🌊\n`feedback` **Leave feedback on Operator for the developers**🌊"
+            "Here's a list of all of my commands listed under the extra category. (Super Uniqe)\n\n`poll` **Create a yes or no poll within the given channel**🌊\n`announce` **The bot announces the argument given**🌊\n`report` **Must have a channel called reports, report a user to server staff**🌊\n`emojis` **The bot will send all the emojis on the current guild**🌊\n`stats` **Check the bots servers,and users count along with user stats**🌊\n`dog` **Send a random dog photo**🌊\n`cat` **Send a random cat photo**🌊\n`ticket` **Open a ticket, to contact server support**🌊\n`close` **Close a support ticket, within the current guild**🌊\n`bird` **Send a random bird photo**🌊\n`feedback` **Leave feedback on Operator for the developers**🌊"
           )
           .setFooter(
             `Requested by: ${message.author.tag}, Use: ops!feedback to leave some feedback!`,
