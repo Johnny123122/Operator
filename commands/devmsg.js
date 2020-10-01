@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
               "**\nSincerely, Operator's Developer Excel#4599"
           )
           .setFooter(
-            `Invite the bot to your server, by using ops!invite!`,
+            `Invite the bot to your server, by using ops!invite`,
             bot.user.displayAvatarURL()
           );
         message.channel.send(embed12122);
