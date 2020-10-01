@@ -3,7 +3,6 @@ module.exports.run = async (bot, message, args) => {
         if (message.member.id != 700096978796937267)
           return message.reply("You can't use that command!");
         try {
-          const date = new Date();
           const input = args.join(" ");
           let output = eval(input);
           if (typeof output !== "string") {
@@ -57,6 +56,6 @@ module.exports.run = async (bot, message, args) => {
 }
 
 module.exports.help = {
-  name: "restart",
+  name: "eval",
   aliases: [""]
 };
