@@ -45,7 +45,7 @@ module.exports.run = async (bot, message, args) => {
           )
           .addField(
             `Links`,
-            `[Invite Me](https://discord.com/oauth2/authorize?client_id=755070612090650714&permissions=201714758&scope=bot) •	[Support Server](https://discord.gg/pXjgDxn) `
+            `[Invite Me](https://discord.com/oauth2/authorize?client_id=755070612090650714&permissions=201714758&scope=bot) •	[Support Server](https://discord.gg/BT9QMjp) `
           )
           .setFooter(
             `Requested by: ${message.author.tag}`,

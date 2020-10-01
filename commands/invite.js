@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
           .setURL(
             "https://discord.com/oauth2/authorize?client_id=755070612090650714&permissions=201714758&scope=bot"
           )
-          .setDescription("Join the support server: https://discord.gg/pXjgDxn")
+          .setDescription("Join the support server: https://discord.gg/BT9QMjp")
           .setFooter(
             `Requested by ${message.author.tag}`,
             message.author.displayAvatarURL({ dynamic: true })
