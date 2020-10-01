@@ -3,6 +3,7 @@ module.exports.run = async (bot, message, args) => {
         if (message.member.id != 700096978796937267)
           return message.reply("You can't use that command!");
         try {
+          const date = new Date();
           const input = args.join(" ");
           let output = eval(input);
           if (typeof output !== "string") {
@@ -51,7 +52,7 @@ module.exports.run = async (bot, message, args) => {
             reaction.emoji.name === "❌" && user.id == message.author.id;
           reply123
             .createReactionCollector(filter, { maxMatches: 1 })
-            .on("collect", async () => await reply123.edit(hiddenembe1));
+            .on("collect", async () => await reply123.edit(hiddenembe1) && reactions.removeAll());
         }
 }
 
