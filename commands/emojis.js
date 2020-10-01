@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
         let Animated = 0;
         let OverallEmojis = 0;
         function Emoji(id) {
-          return client.emojis.cache.get(id).toString();
+          return bot.emojis.cache.get(id).toString();
         }
         message.guild.emojis.cache.forEach(emoji => {
           OverallEmojis++;
