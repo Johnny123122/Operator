@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
             `Sent By: ${message.author.tag}`,
             message.author.displayAvatarURL({ dynamic: true })
           );
-        client.channels.cache.get("755954222998224986").send(embed7771);
+        client.channels.cache.get("761196312062328864").send(embed7771);
 }
 
 module.exports.help = {
