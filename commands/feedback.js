@@ -1,5 +1,5 @@
 const { Discord, MessageEmbed } = require("discord.js");
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async (bot, message, args, prefix12) => {
         let feedback_message = message.content
           .split(`${prefix12}feedback `).join("");
         if (!feedback_message) {
