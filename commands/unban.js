@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
     message.guild.members.unban(bUser.user);
     const unbanconfirmation = new MessageEmbed()
       .setTitle(
-        `${client.users.cache.get(userID).tag} has sucessfully been unbanned!`
+        `${bot.users.cache.get(userID).tag} has sucessfully been unbanned!`
       )
       .setColor("GREEN");
     message.channel.send(unbanconfirmation);
