@@ -91,7 +91,7 @@ module.exports.run = async (bot, message, args) => {
           .on(
             "collect",
             async () =>
-              (await sentembed.edit(embed1) && sentembed.reactions.resolve("⏮").users.remove(message.author.id)))
+              (await sentembed.edit(embed11) && sentembed.reactions.resolve("⏮").users.remove(message.author.id)))
                   const filter1121211 = (reaction, user) =>
           reaction.emoji.name === "◀" && user.id == message.author.id;
         sentembed

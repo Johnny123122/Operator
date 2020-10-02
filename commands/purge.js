@@ -1,4 +1,4 @@
-const { Discord, MessageEmbed } = require("discord.js");
+const { Discord, MessageEmbed, Message } = require("discord.js");
 module.exports.run = async (bot, message, args) => {
         if (!message.member.hasPermission("MANAGE_MESSAGES"))
           return message.reply("You don't have permission to use that!");
@@ -23,7 +23,13 @@ module.exports.run = async (bot, message, args) => {
         await message.channel.messages
           .fetch({ limit: amount1 })
           .then(messages => {
-            message.channel.bulkDelete(messages);
+            message.channel.bulkDelete(messages)
+            const embed =  new MessageEmbed()
+            .setTitle('Purge Complete!')
+            .setDescription("I've sucessfully purged " + amount1 + "!\n This message will automatically be deleted within 5 seconds.")
+            .setThumbnail('https://o.remove.bg/downloads/1cb94cb5-0442-4ee8-916e-df0dcb990ac9/image-removebg-preview.png')
+            .setFooter(`Purge Conducted by: ${message.author.id}`, message.author.displayAvatarURL({dynamic: true}))
+            message.channel.send({embed: embed})
           });
 }
 
