@@ -32,7 +32,7 @@ module.exports.run = async (bot, message, args) => {
           );
         let announcement =
           "Want to report a bug, or leave feedback? Use ops!feedback to do so!";
-        let embed = new MessageEmbed()
+        let embed11 = new MessageEmbed()
           .setTitle("Help System")
           .setColor("RANDOM")
           .setFooter(
@@ -51,13 +51,12 @@ module.exports.run = async (bot, message, args) => {
             `Requested by: ${message.author.tag}`,
             message.author.displayAvatarURL({ dynamic: true })
           );
-        if (!args[0]) return message.channel.send(embed);
-        if (args[0].toLowerCase() == "fun")
+        if (args[0] == "fun")
           return message.channel.send(embed121212112121);
-        if (args[0].toLowerCase() == "moderation")
+        if (args[0] == "moderation")
           return message.channel.send(embed121);
-        if (args[0].toLowerCase() == "extra")
-        const sentembed = await message.channel.send(embed)
+        if (args[0] == "extra");
+        const sentembed = await message.channel.send(embed11)
                 await sentembed.react("⏮")
                 await sentembed.react("▶");
                 await sentembed.react("◀")
@@ -92,7 +91,7 @@ module.exports.run = async (bot, message, args) => {
           .on(
             "collect",
             async () =>
-              (await sentembed.edit(embed) && sentembed.reactions.resolve("⏮").users.remove(message.author.id)))
+              (await sentembed.edit(embed1) && sentembed.reactions.resolve("⏮").users.remove(message.author.id)))
                   const filter1121211 = (reaction, user) =>
           reaction.emoji.name === "◀" && user.id == message.author.id;
         sentembed
