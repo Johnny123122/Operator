@@ -4,14 +4,14 @@ module.exports.run = async (bot, message, args) => {
     return message.reply(`You do not have perms to ban someone`);
   }
 
-  const target = message.mentions.members.first() 
+  const target = message.mentions.members.first();
 
   if (!target) {
     return message.reply(`Please mention the person who you want to ban.`);
   }
 
   if (target.hasPermission("MANAGE_SERVER")) {
-    return message.reply("That user is a mod/admin I can't do that!")
+    return message.reply("That user is a mod/admin I can't do that!");
   }
 
   if (target.id === message.author.id) {
@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
   }
 
   if (target.id == 752505054573101190) {
-    return message.reply("I won't ban myself!")
+    return message.reply("I won't ban myself!");
   }
 
   if (!args[1]) {
@@ -36,7 +36,7 @@ module.exports.run = async (bot, message, args) => {
   message.guild.members
     .ban(target, { reason: reason121212121121 })
     .catch(err => console.log(err));
-}
+};
 
 module.exports.help = {
   name: "ban",
