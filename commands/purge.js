@@ -32,8 +32,11 @@ module.exports.run = async (bot, message, args) => {
       .setFooter(
         `Purge Conducted by: ${message.author.id}`,
         message.author.displayAvatarURL({ dynamic: true })
+        .setColor(
+          'GREEN'
+        )
       );
-    message.channel.send({ embed: embed });
+    message.channel.send({ embed: embed }).then(m => m.delete({ timeout: 5000 }))
   });
 };
 
