@@ -5,7 +5,6 @@ module.exports.run = async (bot, message, args) => {
   const { utc } = require("moment");
   const os = require("os");
   const core = os.cpus()[0];
-  const index = require("../index");
   const embed1212 = new MessageEmbed()
     .setTitle("Operator | Stats")
     .setThumbnail(bot.user.displayAvatarURL({ dynamic: true }))
