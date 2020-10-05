@@ -7,6 +7,29 @@ const bot = new Discord.Client({
 
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
+bot.on('guildCreate', guild =>{
+  const channelId = '762790585743441930';
+  const channel = bot.channels.cache.get(channelId);
+  const sowner = guild.owner.user; 
+  if(!channel) return; 
+  const embed12 = new MessageEmbed()
+      .setTitle('I Joined A Guild!')
+      .setDescription(`**Guild Name:** ${guild.name} (${guild.id})\n**Members:** ${guild.memberCount}\n**Owner:** ${sowner.tag}`)
+      .setTimestamp()
+      .setColor('GREEN')
+      .setFooter(`I'm In ${bot.guilds.cache.size} Guilds Now!`);
+  channel.send(embed12);
+})
+bot.on('guildCreate', guild =>{
+  if(!guild) return; 
+  const embed121 = new MessageEmbed()
+      .setTitle('Thanks for adding me to your server!')
+      .setDescription(`Hey-yo! I've been added to your server: **${guild.name}**\nIs this your first time using Operator? Very well then, you may say ops!help in any of my guilds for a list of commands.\nMy prefix is set to \`ops!\`\nStill got questions? No worries! We've got you covered. Join The Support Server To Ask: [Click Here!](https://discord.com)`)
+      .setTimestamp()
+      .setColor('GREEN')
+      .setFooter(`I'm In ${bot.guilds.cache.size} Guilds Now!`);
+  guild.owner.user.send(embed121);
+})
 
 
 fs.readdir("./commands/", (err, files) => {
