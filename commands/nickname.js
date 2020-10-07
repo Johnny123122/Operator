@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
   member.setNickname(nicknamechange, `Responsible Mod: ${message.author.tag}`).catch(err => {
     message.channel.send(`I failed to change ${user12.tag}'s nickname, please check my permissions and try again!`)
   });
-  if (member.nickname === nicknamechange) return message.channel.send(embed11)
+  if (member.nickname == nicknamechange) return message.channel.send(embed11)
 }
 
 module.exports.help = {
