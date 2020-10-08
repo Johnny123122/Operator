@@ -71,7 +71,7 @@ bot.on('guildCreate', guild =>{
 })
   bot.on("message", async message => {
     if(message.author.bot) return;
-    if(message.channel.type === "dm") return;
+    if(message.channel.type === "dm") return message.reply('You must run my commands within a guild!');
     const dbdb1 = require("quick.db");
     let prefix12 = dbdb1.get(`prefix_${message.guild.id}`);
     if (prefix12 === null) prefix12 = "ops!";
