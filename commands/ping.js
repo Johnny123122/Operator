@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("Response Time", Date.now() - msg12121.createdTimestamp + "ms")
     .addField("Reply Time", Date.now() - message.createdTimestamp + "ms")
     .addField("API Latency", Math.round(bot.ws.ping) + "ms")
-    .addField('Shard', bot.ws.shard)
+    .addField('Shard', Math.round(bot.ws.shard))
   await msg12121.edit(embed2000);
 };
 
