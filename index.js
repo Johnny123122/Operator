@@ -46,7 +46,7 @@ setInterval(
   ),
 10000
 );
-bot.on('guildCreate', guild =>{
+bot.on('guildCreate', async guild =>{
   const channelId = '762790585743441930';
   const channel = bot.channels.cache.get(channelId);
   const sowner = guild.owner.user; 
