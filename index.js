@@ -99,4 +99,4 @@ bot.on('guildCreate', guild =>{
   )})
 
 
-bot.login(process.env.token);
+bot.login('NzU1MDcwNjEyMDkwNjUwNzE0.X198Tg.M75kOBmAe3NLrSU2ZVrSleMKZDo');
